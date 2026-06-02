@@ -1,0 +1,79 @@
+{% extends 'meny/base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Logga -->
+<section class="text-center mt-4">
+    <img src="{% static 'images/Burgrs-sarajevo-ny-logga-2.webp' %}" alt="Burgrs Sarajevo" style="height: 120px;">
+    <p class="lead mt-2" style="color: var(--yellow);">Like burgers. But better.</p>
+</section>
+
+<!-- Veckans burgare -->
+{% if featured %}
+<div class="row mt-5">
+    <div class="col-lg-8 mx-auto">
+        <div class="card" style="background: var(--dark-gray); border: 1px solid #333;">
+            <div class="row g-0">
+                <div class="col-md-5">
+                    <img src="{{ featured.bild_url }}" alt="{{ featured.namn }}" style="height: 100%; width: 100%; object-fit: cover;">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <span class="badge mb-2" style="background: var(--yellow); color: var(--black);">⭐ This Week's Pick</span>
+                        <h5 style="font-size: 1.5rem;">{{ featured.namn }}</h5>
+                        <p style="color: var(--light-gray); font-size: 0.95rem;">{{ featured.beskrivning }}</p>
+                        <p class="price" style="font-size: 1.3rem;">{{ featured.pris }} KM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Månadens special + App-erbjudande -->
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        <div class="row g-3">
+            
+            <!-- Månadens special -->
+            <div class="col-md-6">
+                <div class="card p-4 h-100 text-center" style="background: var(--dark-gray); border: 1px solid var(--yellow);">
+                    <span class="badge mb-2 mx-auto" style="background: var(--yellow); color: var(--black);">🌟 Monthly Special</span>
+                    <h5 style="font-size: 1.3rem;">Coming Soon</h5>
+                    <p style="color: var(--light-gray); font-size: 0.85rem;">Something special is cooking. Stay tuned.</p>
+                </div>
+            </div>
+            
+            <!-- App-erbjudande -->
+            <div class="col-md-6">
+                <div class="card p-4 h-100 text-center" style="background: var(--dark-gray); border: 1px solid #222;">
+                    <h5 style="font-size: 1.3rem;">Got the app?</h5>
+                    <p style="color: var(--light-gray); font-size: 0.85rem;">Exclusive offers are waiting inside. Show your account to redeem.</p>
+                    <a href="{% url 'erbjudanden' %}" class="btn btn-primary btn-sm mt-2">View Offers</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- Senaste nytt -->
+{% if senaste_nyhet %}
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        <div class="card p-3" style="background: var(--dark-gray); border: 1px solid #222;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge mb-1" style="background: var(--yellow); color: var(--black);">Latest News</span>
+                    <h5 style="font-size: 1.1rem; margin: 4px 0;">{{ senaste_nyhet.titel }}</h5>
+                    <p style="color: var(--light-gray); font-size: 0.85rem; margin: 0;">{{ senaste_nyhet.text|truncatechars:120 }}</p>
+                </div>
+                <a href="{% url 'nyheter' %}" class="btn btn-outline-warning btn-sm flex-shrink-0 ms-3">Read</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

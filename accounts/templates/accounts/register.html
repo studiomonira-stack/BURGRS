@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register – Burgrs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --black: #0B0B0B; --dark-gray: #1A1A1A; --yellow: #F5A623; --white: #FFFFFF; --light-gray: #CCCCCC; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+            color: var(--white);
+            font-family: 'Archivo', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .register-wrapper {
+            width: 100%;
+            max-width: 440px;
+        }
+        .register-card {
+            background: var(--dark-gray);
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 40px 32px;
+        }
+        .register-card h2 {
+            font-weight: 700;
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        .register-card .subtitle {
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.85rem;
+            margin-bottom: 28px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--light-gray);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .form-input {
+            width: 100%;
+            background: var(--black);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: var(--white);
+            font-family: 'Archivo', sans-serif;
+            font-size: 0.95rem;
+            transition: border 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--yellow);
+            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+        }
+        .form-input::placeholder {
+            color: #555;
+        }
+        .btn-primary {
+            width: 100%;
+            background: var(--yellow);
+            border: none;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 8px;
+        }
+        .btn-primary:hover {
+            background: #E6951A;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+        }
+        .register-card .footer-text {
+            text-align: center;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            color: var(--light-gray);
+        }
+        .register-card .footer-text a {
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .register-card .footer-text a:hover {
+            text-decoration: underline;
+        }
+        .benefits {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .benefits span {
+            margin: 0 8px;
+        }
+        .errorlist {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            list-style: none;
+            padding: 0;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-wrapper">
+    <div class="register-card">
+        <h2>🍔 Join Burgrs</h2>
+        <p class="subtitle">Create your account and unlock exclusive offers</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label>Username</label>
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+            
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                {% if form.email.errors %}
+                    <ul class="errorlist">{% for error in form.email.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phone" class="form-input" placeholder="+387 61 123 456" required>
+                {% if form.phone.errors %}
+                    <ul class="errorlist">{% for error in form.phone.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                <label>Password</label>
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+            </div>
+            
+            <div class="form-group">
+                <label>Confirm Password</label>
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
+        
+        <p class="footer-text">Already have an account? <a href="{% url 'account_login' %}">Login</a></p>
+    </div>
+    
+    <div class="benefits">
+        <span>🔒 Secure</span>
+        <span>🎁 Exclusive offers</span>
+        <span>🍔 Members only</span>
+    </div>
+</div>
+
+</body>
+</html>

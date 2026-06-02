@@ -1,0 +1,30 @@
+{% extends 'meny/base.html' %}
+{% block content %}
+
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        <h1 style="font-size: 2rem;">📰 News</h1>
+        <p style="color: var(--light-gray); font-size: 0.9rem;">What's cooking at Burgrs.</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        {% for nyhet in nyheter %}
+            <div class="card mb-3" style="background: var(--dark-gray); border: 1px solid #222;">
+                {% if nyhet.bild_url %}
+                    <img src="{{ nyhet.bild_url }}" class="card-img-top" alt="{{ nyhet.titel }}" style="height: 200px; object-fit: cover;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 style="font-size: 1.2rem;">{{ nyhet.titel }}</h5>
+                    <p style="color: var(--light-gray); font-size: 0.9rem;">{{ nyhet.text }}</p>
+                    <small style="color: var(--yellow);">{{ nyhet.publicerad|date:"M d, Y" }}</small>
+                </div>
+            </div>
+        {% empty %}
+            <p style="color: var(--light-gray);">No news yet. Something exciting is coming.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

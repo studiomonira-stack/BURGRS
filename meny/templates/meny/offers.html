@@ -1,0 +1,41 @@
+{% extends 'meny/base.html' %}
+{% block content %}
+
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        <h1 style="font-size: 2rem;">🎁 Exclusive Offers</h1>
+        <p style="color: var(--light-gray); font-size: 0.9rem;">For app members only. Show your account to redeem.</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        {% for erbjudande in erbjudanden %}
+            <div class="card mb-3" style="background: var(--dark-gray); border: 1px solid #333;">
+                {% if erbjudande.bild_url %}
+                    <img src="{{ erbjudande.bild_url }}" class="card-img-top" alt="{{ erbjudande.titel }}" style="height: 180px; object-fit: cover;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 style="font-size: 1.2rem;">{{ erbjudande.titel }}</h5>
+                    <p style="color: var(--light-gray); font-size: 0.9rem;">{{ erbjudande.text }}</p>
+                    
+                    {% if erbjudande.id in anvanda %}
+                        <p style="color: #e74c3c; font-size: 0.85rem;">❌ Already used</p>
+                    {% else %}
+                        {% if erbjudande.kod %}
+                            <p style="color: var(--yellow);"><strong>Code:</strong> {{ erbjudande.kod }}</p>
+                        {% endif %}
+                        <form method="post" action="{% url 'anvand_erbjudande' erbjudande.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary btn-sm">Redeem Offer</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        {% empty %}
+            <p style="color: var(--light-gray);">No offers right now. Check back soon!</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

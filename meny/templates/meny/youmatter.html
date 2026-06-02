@@ -1,0 +1,68 @@
+{% extends 'meny/base.html' %}
+{% block content %}
+
+<div class="row mt-4 g-4">
+
+    <!-- VÄNSTER -->
+    <div class="col-lg-6">
+        <h1 style="font-size: 2rem;">YOU MATTER.</h1>
+        <p style="color: var(--light-gray); font-size: 0.9rem; margin-bottom: 2rem;">Your voice shapes Burgrs. Every visit. Every bite. Every thought.</p>
+
+        <!-- Bring it back -->
+        <h2 style="font-size: 1.2rem;">🗳 Bring it back?</h2>
+        {% if not user.is_authenticated %}
+            <p style="color: var(--light-gray); font-size: 0.8rem;"><a href="{% url 'account_login' %}" style="color: var(--yellow);">Login</a> to vote!</p>
+        {% elif har_rostat %}
+            <p style="color: var(--yellow); font-size: 0.85rem;">✅ Thanks for voting!</p>
+            <div class="mt-2" style="font-size: 0.8rem;">
+                <p style="color: var(--light-gray); margin: 2px 0;">The Truffle Beast: {{ rost_truffle }} röster</p>
+                <p style="color: var(--light-gray); margin: 2px 0;">Spicy Sambal Crunch: {{ rost_sambal }} röster</p>
+                <p style="color: var(--light-gray); margin: 2px 0;">Balkan Breakfast: {{ rost_balkan }} röster</p>
+                <p style="color: var(--yellow); margin-top: 4px;">Totalt: {{ total_rost }} röster</p>
+            </div>
+        {% else %}
+            <form method="post" action="{% url 'rosta' %}">
+                {% csrf_token %}
+                <button type="submit" name="val" value="truffle" class="btn btn-outline-warning btn-sm mb-2 w-100">The Truffle Beast</button>
+                <button type="submit" name="val" value="sambal" class="btn btn-outline-warning btn-sm mb-2 w-100">Spicy Sambal Crunch</button>
+                <button type="submit" name="val" value="balkan" class="btn btn-outline-warning btn-sm w-100">Balkan Breakfast Burger</button>
+            </form>
+        {% endif %}
+
+        <!-- What's missing -->
+        <h2 style="font-size: 1.2rem; margin-top: 2rem;">💡 What's missing?</h2>
+        <form method="post" action="https://formspree.io/f/maqkrroz">
+            {% csrf_token %}
+            <textarea name="suggestion" class="form-control mb-2" rows="2" placeholder="Your idea..." style="background: var(--dark-gray); color: white; border: 1px solid #333; font-size: 0.85rem;"></textarea>
+            <button type="submit" class="btn btn-primary btn-sm w-100">Send</button>
+        </form>
+    </div>
+
+    <!-- HÖGER: Recensioner -->
+    <div class="col-lg-6">
+        <h2 style="font-size: 1.2rem;">⭐ Leave a review</h2>
+        <a href="{{ google_review_url }}" target="_blank" class="btn btn-primary btn-sm mb-3">Write on Google</a>
+
+        <div class="card p-2 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
+            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
+            <p style="color: white; font-style: italic; margin: 2px 0; font-size: 0.85rem;">"Really tasty, crispy, juicy, simply perfect."</p>
+            <small style="color: var(--light-gray); font-size: 0.75rem;">– Ae</small>
+        </div>
+        <div class="card p-2 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
+            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
+            <p style="color: white; font-style: italic; margin: 2px 0; font-size: 0.85rem;">"Nothing in the Balkans comes close to these burgers. Paradise for hamburger lovers! TOP CLASS"</p>
+            <small style="color: var(--light-gray); font-size: 0.75rem;">– Omar Rehman</small>
+        </div>
+        <div class="card p-2 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
+            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
+            <p style="color: white; font-style: italic; margin: 2px 0; font-size: 0.85rem;">"The hamburgers are absolutely fantastic."</p>
+            <small style="color: var(--light-gray); font-size: 0.75rem;">– Amir Mekic</small>
+        </div>
+    </div>
+
+</div>
+
+<!-- Tack -->
+<p style="color: var(--yellow); font-size: 0.9rem;" class="text-center mt-4">We read every single one. Promise. 🤞</p>
+
+{% endblock %}

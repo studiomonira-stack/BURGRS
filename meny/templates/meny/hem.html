@@ -1,0 +1,74 @@
+{% extends 'meny/base.html' %}
+{% block content %}
+{% load static %}
+
+<section class="hero">
+    <img src="{% static 'images/Burgrs-sarajevo-ny-logga-2.webp' %}" alt="Burgrs Sarajevo" style="height: 120px;">
+    <p class="lead" style="color: var(--light-gray);">Like burgers. But better.</p>
+    <a href="#meny" class="btn btn-primary btn-lg mt-3">See the menu</a>
+</section>
+
+<section id="meny" class="mt-5">
+    <h2 class="mb-4">🍔 Burgers</h2>
+    <div class="row g-4">
+        {% for burgare in burgare %}
+            {% if burgare.kategori == 'burgers' %}
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="{{ burgare.bild_url }}" alt="{{ burgare.namn }}">
+                        <div class="card-body">
+                            <h5>{{ burgare.namn }}</h5>
+                            <p style="color: var(--light-gray);">{{ burgare.beskrivning }}</p>
+                            <p class="price">{{ burgare.pris }} KM</p>
+                            {% if burgare.popular %}
+                                <span class="badge" style="background: var(--yellow); color: var(--black);">⭐ Popular</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <h2 class="mt-5 mb-4">🍟 Sides</h2>
+    <div class="row g-4">
+        {% for burgare in burgare %}
+            {% if burgare.kategori == 'sides' %}
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="{{ burgare.bild_url }}" alt="{{ burgare.namn }}">
+                        <div class="card-body">
+                            <h5>{{ burgare.namn }}</h5>
+                            <p style="color: var(--light-gray);">{{ burgare.beskrivning }}</p>
+                            <p class="price">{{ burgare.pris }} KM</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <h2 class="mt-5 mb-4">🥫 Dips</h2>
+    <div class="row g-4">
+        {% for burgare in burgare %}
+            {% if burgare.kategori == 'dips' %}
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="{{ burgare.bild_url }}" alt="{{ burgare.namn }}">
+                        <div class="card-body">
+                            <h5>{{ burgare.namn }}</h5>
+                            <p style="color: var(--light-gray);">{{ burgare.beskrivning }}</p>
+                            <p class="price">{{ burgare.pris }} KM</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if not burgare %}
+        <p style="color: var(--light-gray);">No items added yet.</p>
+    {% endif %}
+</section>
+
+{% endblock %}
