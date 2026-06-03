@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Burgare, Nyhet, Erbjudande
-from .models import Banner
+from .models import Burgare, Nyhet, Erbjudande, Banner
 
 class BurgareAdmin(admin.ModelAdmin):
     list_display = ('namn', 'kategori', 'pris', 'popular')
