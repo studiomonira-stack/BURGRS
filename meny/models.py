@@ -70,3 +70,13 @@ class AnvantErbjudande(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.erbjudande.titel}"
+
+    class Banner(models.Model):
+        text = models.CharField(max_length=200)
+        aktiv = models.BooleanField(default=True)
+        farg = models.CharField(max_length=7, default='#F5A623')  # Gul som standard
+        text_farg = models.CharField(max_length=7, default='#0B0B0B')  # Svart text
+        skapad = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text[:50]

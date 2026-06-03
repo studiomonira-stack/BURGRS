@@ -172,6 +172,15 @@ button {
     </style>
 </head>
 <body>
+{% if user.is_authenticated %}
+    {% for banner in banners %}
+        {% if banner.aktiv %}
+            <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; text-align: center; padding: 10px 16px; font-size: 0.9rem; font-weight: 600;">
+                {{ banner.text }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
 
 <nav class="navbar navbar-dark navbar-expand-lg px-4">
     <a class="navbar-brand" href="/">
