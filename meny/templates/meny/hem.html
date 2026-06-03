@@ -59,14 +59,23 @@ function filterMenu(category) {
     background: var(--yellow) !important;
     color: var(--black) !important;
 }
-.menu-item {
-    width: 100%;
+#meny {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
 }
 @media (min-width: 768px) {
-    .menu-item {
-        width: calc(33.333% - 20px);
-        margin-right: 20px;
+    #meny {
+        grid-template-columns: repeat(2, 1fr);
     }
+}
+@media (min-width: 992px) {
+    #meny {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.menu-item {
+    width: 100%;
 }
 </style>
 
