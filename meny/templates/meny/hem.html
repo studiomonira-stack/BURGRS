@@ -1,73 +1,72 @@
 {% extends 'meny/base.html' %}
 {% block content %}
-{% load static %}
 
 <section class="hero">
     <img src="{% static 'images/Burgrs-sarajevo-ny-logga-2.webp' %}" alt="Burgrs Sarajevo" style="height: 120px;">
-    <p class="lead" style="color: var(--light-gray);">Like burgers. But better.</p>
+    <p class="lead mt-2" style="color: var(--yellow);">Like burgers. But better.</p>
 </section>
 
-<section id="meny" class="mt-5">
-    <h2 class="mb-4">🍔 Burgers</h2>
-    <div class="row g-4">
-        {% for burgare in burgare %}
-            {% if burgare.kategori == 'burgers' %}
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="{{ burgare.bild_url }}" alt="{{ burgare.namn }}">
-                        <div class="card-body">
-                            <h5>{{ burgare.namn }}</h5>
-                            <p style="color: var(--light-gray);">{{ burgare.beskrivning }}</p>
-                            <p class="price">{{ burgare.pris }} KM</p>
-                            {% if burgare.popular %}
-                                <span class="badge" style="background: var(--yellow); color: var(--black);">⭐ Popular</span>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+<!-- Kategorifilter -->
+<div class="text-center mt-4">
+    <button class="btn btn-outline-warning btn-sm me-2 active-filter" onclick="filterMenu('all')">All</button>
+    <button class="btn btn-outline-warning btn-sm me-2" onclick="filterMenu('burgers')">Burgers</button>
+    <button class="btn btn-outline-warning btn-sm me-2" onclick="filterMenu('sides')">Sides</button>
+    <button class="btn btn-outline-warning btn-sm" onclick="filterMenu('dips')">Dips</button>
+</div>
 
-    <h2 class="mt-5 mb-4">🍟 Sides</h2>
-    <div class="row g-4">
-        {% for burgare in burgare %}
-            {% if burgare.kategori == 'sides' %}
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="{{ burgare.bild_url }}" alt="{{ burgare.namn }}">
-                        <div class="card-body">
-                            <h5>{{ burgare.namn }}</h5>
-                            <p style="color: var(--light-gray);">{{ burgare.beskrivning }}</p>
-                            <p class="price">{{ burgare.pris }} KM</p>
-                        </div>
-                    </div>
+<!-- Meny -->
+<section id="meny" class="mt-4">
+    {% for burgare in burgare %}
+        <div class="menu-item col-md-4" data-category="{{ burgare.kategori }}" style="display: inline-block; margin-bottom: 20px;">
+            <div class="card h-100">
+                <img src="{{ burgare.bild_url }}" alt="{{ burgare.namn }}">
+                <div class="card-body">
+                    <h5>{{ burgare.namn }}</h5>
+                    <p style="color: var(--light-gray); font-size: 0.9rem;">{{ burgare.beskrivning }}</p>
+                    <p class="price">{{ burgare.pris }} KM</p>
+                    {% if burgare.popular %}
+                        <span class="badge" style="background: var(--yellow); color: var(--black);">⭐ Popular</span>
+                    {% endif %}
                 </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-
-    <h2 class="mt-5 mb-4">🥫 Dips</h2>
-    <div class="row g-4">
-        {% for burgare in burgare %}
-            {% if burgare.kategori == 'dips' %}
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="{{ burgare.bild_url }}" alt="{{ burgare.namn }}">
-                        <div class="card-body">
-                            <h5>{{ burgare.namn }}</h5>
-                            <p style="color: var(--light-gray);">{{ burgare.beskrivning }}</p>
-                            <p class="price">{{ burgare.pris }} KM</p>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-
-    {% if not burgare %}
-        <p style="color: var(--light-gray);">No items added yet.</p>
-    {% endif %}
+            </div>
+        </div>
+    {% empty %}
+        <p style="color: var(--light-gray); text-align: center;">No items added yet.</p>
+    {% endfor %}
 </section>
+
+<script>
+function filterMenu(category) {
+    document.querySelectorAll('.menu-item').forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'inline-block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    
+    // Uppdatera aktiv knapp
+    document.querySelectorAll('.btn-outline-warning').forEach(btn => {
+        btn.classList.remove('active-filter');
+    });
+    event.target.classList.add('active-filter');
+}
+</script>
+
+<style>
+.active-filter {
+    background: var(--yellow) !important;
+    color: var(--black) !important;
+}
+.menu-item {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .menu-item {
+        width: calc(33.333% - 20px);
+        margin-right: 20px;
+    }
+}
+</style>
 
 {% endblock %}
