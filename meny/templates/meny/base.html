@@ -169,31 +169,31 @@
         <img src="{% static 'images/Burgrs-sarajevo-ny-logga-2.webp' %}" alt="Burgrs" height="40">
     </a>
     
-    <div class="d-flex align-items-center">
-        {% if not user.is_authenticated %}
-            <a href="{% url 'account_login' %}" class="btn btn-warning btn-sm me-2" style="background: var(--yellow); color: var(--black); font-weight: 700;">Login for offers</a>
-        {% else %}
-            <form method="post" action="{% url 'logout' %}" class="me-2">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-warning btn-sm">Logout</button>
-            </form>
-        {% endif %}
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     
     <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="ms-auto">
+        <div class="ms-auto d-flex align-items-center">
             <a href="{% url 'hem' %}" class="nav-link text-white d-block d-lg-inline-block">Menu</a>
             <a href="{% url 'nyheter' %}" class="nav-link text-white d-block d-lg-inline-block">News</a>
             <a href="{% url 'erbjudanden' %}" class="nav-link text-white d-block d-lg-inline-block">Offers</a>
-            <a href="{% url 'youmatter' %}" class="nav-link text-white d-block d-lg-inline-block">You Matter</a>
+            <a href="{% url 'youmatter' %}" class="nav-link text-white d-block d-lg-inline-block me-3">You Matter</a>
+            
+            {% if not user.is_authenticated %}
+                <a href="{% url 'account_login' %}" class="btn btn-warning btn-sm" style="background: var(--yellow); color: var(--black); font-weight: 700;">Login for offers</a>
+            {% else %}
+                <form method="post" action="{% url 'logout' %}" class="mb-0">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-warning btn-sm">Logout</button>
+                </form>
+            {% endif %}
         </div>
     </div>
 </nav>
+  
+
 
     <div class="container mt-4">
         {% block content %}
