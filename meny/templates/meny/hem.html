@@ -59,9 +59,12 @@ function filterMenu(category) {
     background: var(--yellow) !important;
     color: var(--black) !important;
 }
+.menu-item {
+    width: 100%;
+}
 #meny {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 @media (min-width: 768px) {
@@ -74,10 +77,6 @@ function filterMenu(category) {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-.menu-item {
-    width: 100%;
-}
-
 @media (max-width: 576px) {
     .text-center .btn {
         display: block;
