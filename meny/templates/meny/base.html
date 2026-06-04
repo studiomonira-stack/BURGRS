@@ -166,22 +166,6 @@
 </head>
 <body>
 
-{% if user.is_authenticated %}
-    {% for banner in banners %}
-        {% if banner.aktiv %}
-            {% if banner.typ == 'marquee' %}
-                <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; padding: 10px 16px; font-size: 0.9rem; font-weight: 600; overflow: hidden; white-space: nowrap;">
-                    <span style="display: inline-block; animation: marquee 15s linear infinite;">{{ banner.text }} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; {{ banner.text }}</span>
-                </div>
-            {% else %}
-                <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; text-align: center; padding: 10px 16px; font-size: 0.9rem; font-weight: 600;">
-                    {{ banner.text }}
-                </div>
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-{% endif %}
-
 <nav class="navbar navbar-dark navbar-expand-lg px-4">
     <a class="navbar-brand" href="/">
         <img src="{% static 'images/Burgrs-sarajevo-ny-logga-2.webp' %}" alt="Burgrs" height="40">
@@ -212,6 +196,22 @@
         </div>
     </div>
 </nav>
+
+{% if user.is_authenticated %}
+    {% for banner in banners %}
+        {% if banner.aktiv %}
+            {% if banner.typ == 'marquee' %}
+                <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; padding: 10px 16px; font-size: 0.9rem; font-weight: 600; overflow: hidden; white-space: nowrap;">
+                    <span style="display: inline-block; animation: marquee 15s linear infinite;">{{ banner.text }} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; {{ banner.text }}</span>
+                </div>
+            {% else %}
+                <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; text-align: center; padding: 10px 16px; font-size: 0.9rem; font-weight: 600;">
+                    {{ banner.text }}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
 
     <div class="container mt-4">
         {% block content %}
