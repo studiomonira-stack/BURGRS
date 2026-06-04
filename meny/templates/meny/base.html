@@ -151,15 +151,27 @@
                 margin-bottom: 0;
             }
         }
+        
+        @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
     </style>
 </head>
 <body>
+
 {% if user.is_authenticated %}
     {% for banner in banners %}
         {% if banner.aktiv %}
-            <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; text-align: center; padding: 10px 16px; font-size: 0.9rem; font-weight: 600;">
-                {{ banner.text }}
-            </div>
+            {% if banner.typ == 'marquee' %}
+                <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; padding: 10px 16px; font-size: 0.9rem; font-weight: 600; overflow: hidden; white-space: nowrap;">
+                    <span style="display: inline-block; animation: marquee 15s linear infinite;">{{ banner.text }} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; {{ banner.text }}</span>
+                </div>
+            {% else %}
+                <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; text-align: center; padding: 10px 16px; font-size: 0.9rem; font-weight: 600;">
+                    {{ banner.text }}
+                </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
 {% endif %}

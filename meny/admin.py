@@ -8,12 +8,14 @@ class BurgareAdmin(admin.ModelAdmin):
 admin.site.register(Burgare, BurgareAdmin)
 
 class BannerAdmin(admin.ModelAdmin):
-    list_display = ('text', 'aktiv', 'farg')
+    list_display = ('text', 'typ', 'aktiv')
+    list_filter = ('typ', 'aktiv')
 
-admin.site.register(Banner)
+admin.site.register(Banner, BannerAdmin)
 
 class ErbjudandeAdmin(admin.ModelAdmin):
     list_display = ('titel', 'publicerad')
+    list_filter = ('publicerad',)
 
 admin.site.register(Erbjudande, ErbjudandeAdmin)
 

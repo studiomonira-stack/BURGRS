@@ -72,7 +72,13 @@ class AnvantErbjudande(models.Model):
         return f"{self.user.username} - {self.erbjudande.titel}"
 
 class Banner(models.Model):
+    TYP = [
+        ('static', 'Static'),
+        ('marquee', 'Marquee'),
+    ]
+    
     text = models.CharField(max_length=200)
+    typ = models.CharField(max_length=10, choices=TYP, default='static')
     aktiv = models.BooleanField(default=True)
     farg = models.CharField(max_length=7, default='#F5A623')
     text_farg = models.CharField(max_length=7, default='#0B0B0B')
