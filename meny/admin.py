@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Burgare, Nyhet, Erbjudande, Banner
 
 class BurgareAdmin(admin.ModelAdmin):
-    list_display = ('namn', 'kategori', 'ordning', 'pris', 'popular')
+    list_display = ('ordning', 'namn', 'kategori', 'pris', 'popular')
     list_filter = ('kategori', 'popular')
     list_editable = ('ordning',)
 
