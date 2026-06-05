@@ -29,6 +29,9 @@
         .navbar {
             background: var(--black) !important;
             border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .navbar-brand {
             color: var(--yellow) !important;
@@ -151,50 +154,37 @@
                 margin-bottom: 0;
             }
         }
-        
+        .marquee-inner {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
         @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-@media (max-width: 768px) {
-    [style*="animation: marquee"] {
-        font-size: 0.75rem !important;
-        padding: 8px 12px !important;
-    }
-}
-@media (max-width: 768px) {
-    [style*="animation: marquee"] {
-        display: block !important;
-        width: 100% !important;
-        overflow: hidden !important;
-        font-size: 0.7rem !important;
-        padding: 6px 10px !important;
-    }
-    [style*="animation: marquee"] span {
-        display: inline-block !important;
-        white-space: nowrap !important;
-    }
-    .marquee-inner {
-    display: inline-block;
-    padding-left: 100%;
-}
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-}
-.marquee-inner {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 20s linear infinite;
-}
-@keyframes marquee {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-33.33%); }
-}
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-33.33%); }
+        }
+        @media (max-width: 768px) {
+            .marquee-inner {
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body>
+
+{% for banner in banners %}
+    {% if banner.aktiv %}
+        {% if banner.typ == 'marquee' %}
+            <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; padding: 8px 0; font-size: 0.85rem; font-weight: 600; overflow: hidden; width: 100%;">
+                <div class="marquee-inner">{{ banner.text }} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; {{ banner.text }} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; {{ banner.text }}</div>
+            </div>
+        {% else %}
+            <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; text-align: center; padding: 10px 16px; font-size: 0.9rem; font-weight: 600;">
+                {{ banner.text }}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}
 
 <nav class="navbar navbar-dark navbar-expand-lg px-4">
     <a class="navbar-brand" href="/">
@@ -226,20 +216,6 @@
         </div>
     </div>
 </nav>
-
-{% for banner in banners %}
-    {% if banner.aktiv %}
-        {% if banner.typ == 'marquee' %}
-            <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; padding: 8px 0; font-size: 0.85rem; font-weight: 600; overflow: hidden; width: 100%;">
-                <div class="marquee-inner">{{ banner.text }} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; {{ banner.text }} &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp; {{ banner.text }}</div>
-            </div>
-        {% else %}
-            <div style="background: {{ banner.farg }}; color: {{ banner.text_farg }}; text-align: center; padding: 10px 16px; font-size: 0.9rem; font-weight: 600;">
-                {{ banner.text }}
-            </div>
-        {% endif %}
-    {% endif %}
-{% endfor %}
 
     <div class="container mt-4">
         {% block content %}
