@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Burgare, Nyhet, Erbjudande, Rost, AnvantErbjudande
 
 def hem(request):
-    burgare = Burgare.objects.all().order_by('-popular', '-skapad')
+    burgare = Burgare.objects.all().order_by('ordning', '-popular', '-skapad')
     return render(request, 'meny/hem.html', {'burgare': burgare})
 
 from .models import Burgare, Nyhet, Erbjudande, Rost

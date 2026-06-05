@@ -15,7 +15,11 @@ class Burgare(models.Model):
     bild_url = models.URLField(max_length=500)
     kategori = models.CharField(max_length=20, choices=KATEGORIER, default='burgers')
     popular = models.BooleanField(default=False)
+    ordning = models.PositiveIntegerField(default=0)
     skapad = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['ordning', '-skapad']
 
     def __str__(self):
         return f"{self.namn} ({self.get_kategori_display()})"
