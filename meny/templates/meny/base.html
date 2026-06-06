@@ -218,17 +218,16 @@
         </div>
     </div>
 
-            <div class="dropdown d-inline-block ms-3">
-                <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    🌐
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown" style="background: var(--dark-gray); border: 1px solid #222;">
-                    <li><a class="dropdown-item text-white" href="?lang=en">🇬🇧 English</a></li>
-                    <li><a class="dropdown-item text-white" href="?lang=bs">🇧🇦 Bosanski</a></li>
-                    <li><a class="dropdown-item text-white" href="?lang=ar">🇸🇦 العربية</a></li>
-                    <li><a class="dropdown-item text-white" href="?lang=tr">🇹🇷 Türkçe</a></li>
-                </ul>
-            </div>
+            <form action="{% url 'set_language' %}" method="post" class="d-inline">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <select name="language" class="form-select form-select-sm bg-dark text-white border-0" onchange="this.form.submit()" style="width: auto; cursor: pointer;">
+        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>🇬🇧 EN</option>
+        <option value="bs" {% if LANGUAGE_CODE == 'bs' %}selected{% endif %}>🇧🇦 BS</option>
+        <option value="ar" {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}>🇸🇦 AR</option>
+        <option value="tr" {% if LANGUAGE_CODE == 'tr' %}selected{% endif %}>🇹🇷 TR</option>
+    </select>
+</form>
     </div>
 </nav>
 

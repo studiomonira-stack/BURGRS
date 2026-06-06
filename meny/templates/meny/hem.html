@@ -72,5 +72,35 @@ function filterMenu(category) {
     }
 }
 </style>
+<style>
+.active-filter {
+    background: var(--yellow) !important;
+    color: var(--black) !important;
+}
+#meny {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 768px) {
+    #meny {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 992px) {
+    #meny {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.menu-item {
+    width: 100%;
+}
+@media (max-width: 576px) {
+    .text-center .btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}
+</style>
 
 {% endblock %}
