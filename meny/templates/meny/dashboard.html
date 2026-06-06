@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">
-                        <span class="badge mb-2" style="background: var(--yellow); color: var(--black);">🌟 {% trans "Monthly Special" %}</span>
+                        <span class="badge mb-2" style="background: var(--yellow); color: var(--black);">⭐ {% trans "This Week's Pick" %}</span>
                         <h5 style="font-size: 1.5rem;">{{ featured.namn }}</h5>
                         <p style="color: var(--light-gray); font-size: 0.95rem;">{{ featured.beskrivning }}</p>
                         <p class="price" style="font-size: 1.3rem;">{{ featured.pris }} KM</p>
@@ -32,10 +32,24 @@
 
 <div class="row mt-4">
     <div class="col-lg-8 mx-auto">
-        <div class="card p-4 text-center" style="background: var(--dark-gray); border: 1px solid var(--yellow);">
-            <h5 style="font-size: 1.3rem;">📱 {% trans "Got the app?" %}</h5>
-            <p style="color: var(--light-gray); font-size: 0.9rem;">{% trans "Exclusive offers are waiting inside. Show your account to redeem." %}</p>
-            <a href="{% url 'erbjudanden' %}" class="btn btn-primary btn-sm">{% trans "View Offers" %}</a>
+        <div class="row g-3">
+            
+            <div class="col-md-6">
+                <div class="card p-4 h-100 text-center" style="background: var(--dark-gray); border: 1px solid var(--yellow);">
+                    <span class="badge mb-2 mx-auto" style="background: var(--yellow); color: var(--black);">🌟 {% trans "Monthly Special" %}</span>
+                    <h5 style="font-size: 1.3rem;">{% trans "Coming Soon" %}</h5>
+                    <p style="color: var(--light-gray); font-size: 0.85rem;">{% trans "Something special is cooking. Stay tuned." %}</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card p-4 h-100 text-center" style="background: var(--dark-gray); border: 1px solid #222;">
+                    <h5 style="font-size: 1.3rem;">📱 {% trans "Got the app?" %}</h5>
+                    <p style="color: var(--light-gray); font-size: 0.85rem;">{% trans "Exclusive offers are waiting inside. Show your account to redeem." %}</p>
+                    <a href="{% url 'erbjudanden' %}" class="btn btn-primary btn-sm mt-2">{% trans "View Offers" %}</a>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
@@ -56,28 +70,5 @@
     </div>
 </div>
 {% endif %}
-
-<div class="row mt-4 g-3">
-    <div class="col-6 col-md-3">
-        <a href="{% url 'hem' %}" class="card text-center p-3 text-decoration-none" style="background: var(--dark-gray); border: 1px solid #222;">
-            <h5> {% trans "Menu" %}</h5>
-        </a>
-    </div>
-    <div class="col-6 col-md-3">
-        <a href="{% url 'nyheter' %}" class="card text-center p-3 text-decoration-none" style="background: var(--dark-gray); border: 1px solid #222;">
-            <h5> {% trans "News" %}</h5>
-        </a>
-    </div>
-    <div class="col-6 col-md-3">
-        <a href="{% url 'erbjudanden' %}" class="card text-center p-3 text-decoration-none" style="background: var(--dark-gray); border: 1px solid #222;">
-            <h5> {% trans "Offers" %}</h5>
-        </a>
-    </div>
-    <div class="col-6 col-md-3">
-        <a href="{% url 'youmatter' %}" class="card text-center p-3 text-decoration-none" style="background: var(--dark-gray); border: 1px solid #222;">
-            <h5>{% trans "You Matter" %}</h5>
-        </a>
-    </div>
-</div>
 
 {% endblock %}
