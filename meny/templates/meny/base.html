@@ -225,12 +225,12 @@
     {% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}">
     <select name="language" class="form-select form-select-sm bg-dark text-white border-0" onchange="this.form.submit()" style="width: auto; cursor: pointer;">
-        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>🇬🇧 EN</option>
-        <option value="bs" {% if LANGUAGE_CODE == 'bs' %}selected{% endif %}>🇧🇦 BS</option>
-        <option value="ar" {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}>🇸🇦 AR</option>
-                            <!-- <option value="tr" {% if LANGUAGE_CODE == 'tr' %}selected{% endif %}>🇹🇷 TR</option> -->
-        <a href="?language=en" class="text-white ms-2 text-decoration-none" title="English">🇬🇧</a>
-    </select>
+    {% get_current_language as CURRENT_LANGUAGE %}
+    <option value="en" {% if CURRENT_LANGUAGE == 'en' %}selected{% endif %}>🇬🇧 EN</option>
+    <option value="bs" {% if CURRENT_LANGUAGE == 'bs' %}selected{% endif %}>🇧🇦 BS</option>
+    <option value="ar" {% if CURRENT_LANGUAGE == 'ar' %}selected{% endif %}>🇸🇦 AR</option>
+    <option value="tr" {% if CURRENT_LANGUAGE == 'tr' %}selected{% endif %}>🇹🇷 TR</option>
+</select>
 </form>
     </div>
 </nav>
