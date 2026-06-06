@@ -1,24 +1,22 @@
 {% extends 'meny/base.html' %}
+{% load i18n %}
 {% block content %}
-{% load static %}
 
 <section class="hero">
     <img src="{% static 'images/Burgrs-sarajevo-ny-logga-2.webp' %}" alt="Burgrs Sarajevo" style="height: 120px;">
-    <p class="lead mt-2" style="color: var(--yellow);">Like burgers. But better.</p>
+    <p class="lead mt-2" style="color: var(--yellow);">{% trans "Like burgers. But better." %}</p>
 </section>
 
-<!-- Kategorifilter -->
 <div class="text-center mt-4">
-    <button class="btn btn-outline-warning btn-sm me-2 active-filter" onclick="filterMenu('all')">All</button>
-    <button class="btn btn-outline-warning btn-sm me-2" onclick="filterMenu('burgers')">Burgers</button>
-    <button class="btn btn-outline-warning btn-sm me-2" onclick="filterMenu('sides')">Sides</button>
-    <button class="btn btn-outline-warning btn-sm" onclick="filterMenu('dips')">Dips</button>
+    <button class="btn btn-outline-warning btn-sm me-2 active-filter" onclick="filterMenu('all')">{% trans "All" %}</button>
+    <button class="btn btn-outline-warning btn-sm me-2" onclick="filterMenu('burgers')">{% trans "Burgers" %}</button>
+    <button class="btn btn-outline-warning btn-sm me-2" onclick="filterMenu('sides')">{% trans "Sides" %}</button>
+    <button class="btn btn-outline-warning btn-sm" onclick="filterMenu('dips')">{% trans "Dips" %}</button>
 </div>
 
-<!-- Meny -->
 <section id="meny" class="mt-4">
     {% for burgare in burgare %}
-        <div class="menu-item col-md-4" data-category="{{ burgare.kategori }}" style="display: inline-block; margin-bottom: 20px;">
+        <div class="menu-item" data-category="{{ burgare.kategori }}" style="display: inline-block; margin-bottom: 20px;">
             <div class="card h-100">
                 <img src="{{ burgare.bild_url }}" alt="{{ burgare.namn }}">
                 <div class="card-body">
@@ -26,13 +24,13 @@
                     <p style="color: var(--light-gray); font-size: 0.9rem;">{{ burgare.beskrivning }}</p>
                     <p class="price">{{ burgare.pris }} KM</p>
                     {% if burgare.popular %}
-                        <span class="badge" style="background: var(--yellow); color: var(--black);">⭐ Popular</span>
+                        <span class="badge" style="background: var(--yellow); color: var(--black);">⭐ {% trans "Popular" %}</span>
                     {% endif %}
                 </div>
             </div>
         </div>
     {% empty %}
-        <p style="color: var(--light-gray); text-align: center;">No items added yet.</p>
+        <p style="color: var(--light-gray); text-align: center;">{% trans "No items added yet." %}</p>
     {% endfor %}
 </section>
 
@@ -45,8 +43,6 @@ function filterMenu(category) {
             item.style.display = 'none';
         }
     });
-    
-    // Uppdatera aktiv knapp
     document.querySelectorAll('.btn-outline-warning').forEach(btn => {
         btn.classList.remove('active-filter');
     });
@@ -62,19 +58,10 @@ function filterMenu(category) {
 .menu-item {
     width: 100%;
 }
-#meny {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
 @media (min-width: 768px) {
-    #meny {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (min-width: 992px) {
-    #meny {
-        grid-template-columns: repeat(3, 1fr);
+    .menu-item {
+        width: calc(33.333% - 20px);
+        margin-right: 20px;
     }
 }
 @media (max-width: 576px) {

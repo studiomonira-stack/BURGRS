@@ -1,10 +1,11 @@
 {% extends 'meny/base.html' %}
+{% load i18n %}
 {% block content %}
 
 <div class="row mt-4">
     <div class="col-lg-8 mx-auto">
-        <h1 style="font-size: 2rem;">📰 News</h1>
-        <p style="color: var(--light-gray); font-size: 0.9rem;">What's cooking at Burgrs.</p>
+        <h1 style="font-size: 2rem;"> {% trans "News" %}</h1>
+        <p style="color: var(--light-gray); font-size: 0.9rem;">{% trans "What's cooking at Burgrs." %}</p>
     </div>
 </div>
 
@@ -22,7 +23,7 @@
                 </div>
             </div>
         {% empty %}
-            <p style="color: var(--light-gray);">No news yet. Something exciting is coming.</p>
+            <p style="color: var(--light-gray);">{% trans "No news yet. Something exciting is coming." %}</p>
         {% endfor %}
     </div>
 </div>

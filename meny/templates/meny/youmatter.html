@@ -1,24 +1,25 @@
 {% extends 'meny/base.html' %}
+{% load i18n %}
 {% block content %}
 
 <div class="row mt-4 g-4">
 
     <!-- VÄNSTER -->
     <div class="col-lg-6">
-        <h1 style="font-size: 2rem;">YOU MATTER.</h1>
-        <p style="color: var(--light-gray); font-size: 0.9rem; margin-bottom: 2rem;">Your voice shapes Burgrs. Every visit. Every bite. Every thought.</p>
+        <h1 style="font-size: 2rem;">{% trans "YOU MATTER." %}</h1>
+        <p style="color: var(--light-gray); font-size: 0.9rem; margin-bottom: 2rem;">{% trans "Your voice shapes Burgrs. Every visit. Every bite. Every thought." %}</p>
 
         <!-- Bring it back -->
-        <h2 style="font-size: 1.2rem;">🗳 Bring it back?</h2>
+        <h2 style="font-size: 1.2rem;">🗳 {% trans "Bring it back?" %}</h2>
         {% if not user.is_authenticated %}
-            <p style="color: var(--light-gray); font-size: 0.8rem;"><a href="{% url 'account_login' %}" style="color: var(--yellow);">Login</a> to vote!</p>
+            <p style="color: var(--light-gray); font-size: 0.8rem;"><a href="{% url 'account_login' %}" style="color: var(--yellow);">{% trans "Login" %}</a> {% trans "to vote!" %}</p>
         {% elif har_rostat %}
-            <p style="color: var(--yellow); font-size: 0.85rem;">✅ Thanks for voting!</p>
+            <p style="color: var(--yellow); font-size: 0.85rem;">✅ {% trans "Thanks for voting!" %}</p>
             <div class="mt-2" style="font-size: 0.8rem;">
-                <p style="color: var(--light-gray); margin: 2px 0;">The Truffle Beast: {{ rost_truffle }} röster</p>
-                <p style="color: var(--light-gray); margin: 2px 0;">Spicy Sambal Crunch: {{ rost_sambal }} röster</p>
-                <p style="color: var(--light-gray); margin: 2px 0;">Balkan Breakfast: {{ rost_balkan }} röster</p>
-                <p style="color: var(--yellow); margin-top: 4px;">Totalt: {{ total_rost }} röster</p>
+                <p style="color: var(--light-gray); margin: 2px 0;">The Truffle Beast: {{ rost_truffle }} {% trans "votes" %}</p>
+                <p style="color: var(--light-gray); margin: 2px 0;">Spicy Sambal Crunch: {{ rost_sambal }} {% trans "votes" %}</p>
+                <p style="color: var(--light-gray); margin: 2px 0;">Balkan Breakfast: {{ rost_balkan }} {% trans "votes" %}</p>
+                <p style="color: var(--yellow); margin-top: 4px;">{% trans "Total:" %} {{ total_rost }} {% trans "votes" %}</p>
             </div>
         {% else %}
             <form method="post" action="{% url 'rosta' %}">
@@ -29,19 +30,19 @@
             </form>
         {% endif %}
 
-        <!-- What's missing -->
-        <h2 style="font-size: 1.2rem; margin-top: 2rem;">Feedback? We want to hear from you!</h2>
+        <!-- Feedback -->
+        <h2 style="font-size: 1.2rem; margin-top: 2rem;">{% trans "Feedback? We want to hear from you!" %}</h2>
         <form method="post" action="https://formspree.io/f/maqkrroz">
             {% csrf_token %}
-            <textarea name="suggestion" class="form-control mb-2" rows="2" placeholder="Your idea..." style="background: var(--dark-gray); color: white; border: 1px solid #333; font-size: 0.85rem;"></textarea>
-            <button type="submit" class="btn btn-primary btn-sm w-100">Send</button>
+            <textarea name="suggestion" class="form-control mb-2" rows="2" placeholder="{% trans 'Your idea...' %}" style="background: var(--dark-gray); color: white; border: 1px solid #333; font-size: 0.85rem;"></textarea>
+            <button type="submit" class="btn btn-primary btn-sm w-100">{% trans "Send" %}</button>
         </form>
     </div>
 
     <!-- HÖGER: Recensioner -->
     <div class="col-lg-6">
-        <h2 style="font-size: 1.2rem;">⭐ Leave a review</h2>
-        <a href="{{ google_review_url }}" target="_blank" class="btn btn-primary btn-sm mb-3">Write on Google</a>
+        <h2 style="font-size: 1.2rem;">⭐ {% trans "Leave a review" %}</h2>
+        <a href="{{ google_review_url }}" target="_blank" class="btn btn-primary btn-sm mb-3">{% trans "Write on Google" %}</a>
 
         <div class="card p-2 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
             <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
@@ -63,6 +64,6 @@
 </div>
 
 <!-- Tack -->
-<p style="color: var(--yellow); font-size: 0.9rem;" class="text-center mt-4">We read every single one. Promise. 🤞</p>
+<p style="color: var(--yellow); font-size: 0.9rem;" class="text-center mt-4">{% trans "We read every single one. Promise." %} 🤞</p>
 
 {% endblock %}
