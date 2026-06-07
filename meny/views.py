@@ -66,3 +66,6 @@ def dashboard(request):
         'featured': burgare,
         'senaste_nyhet': senaste_nyhet,
     })
+
+def privacy(request):
+    return render(request, 'meny/privacy.html')

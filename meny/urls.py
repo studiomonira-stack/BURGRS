@@ -10,4 +10,5 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('rosta/', views.rosta, name='rosta'),
     path('offers/use/<int:erbjudande_id>/', views.anvand_erbjudande, name='anvand_erbjudande'),
+    path('privacy/', views.privacy, name='privacy'),
 ]
