@@ -146,7 +146,7 @@ msgstr "Kao burgeri. Samo bolji."
 
 #: .\meny\templates\meny\dashboard.html:21
 msgid "This Week's Pick"
-msgstr "msgstr "Izbor ove sedmice"
+msgstr "Izbor ove sedmice"
 
 #: .\meny\templates\meny\dashboard.html:39
 msgid "Monthly Special"
