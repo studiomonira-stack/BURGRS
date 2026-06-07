@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-06 07:27+0200\n"
+"POT-Creation-Date: 2026-06-07 12:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,18 +25,18 @@ msgstr ""
 
 #: .\accounts\templates\accounts\login.html:37
 #: .\accounts\templates\accounts\login.html:48
-#: .\accounts\templates\accounts\register.html:95
+#: .\accounts\templates\accounts\register.html:118
 #: .\meny\templates\meny\youmatter.html:15
 msgid "Login"
 msgstr "Prijava – Burgrs"
 
 #: .\accounts\templates\accounts\login.html:41
-#: .\accounts\templates\accounts\register.html:59
+#: .\accounts\templates\accounts\register.html:73
 msgid "Username"
 msgstr "Prijava"
 
 #: .\accounts\templates\accounts\login.html:45
-#: .\accounts\templates\accounts\register.html:81
+#: .\accounts\templates\accounts\register.html:95
 msgid "Password"
 msgstr "Lozinka"
 
@@ -52,136 +52,155 @@ msgstr "Registruj se ovdje"
 msgid "Register – Burgrs"
 msgstr "Registracija – Burgrs"
 
-#: .\accounts\templates\accounts\register.html:52
+#: .\accounts\templates\accounts\register.html:66
 msgid "Join Burgrs"
 msgstr "Pridruži se Burgrs-u"
 
-#: .\accounts\templates\accounts\register.html:53
+#: .\accounts\templates\accounts\register.html:67
 msgid "Create your account and unlock exclusive offers"
 msgstr "Kreiraj svoj račun i otključaj ekskluzivne ponude"
 
-#: .\accounts\templates\accounts\register.html:65
+#: .\accounts\templates\accounts\register.html:79
 msgid "Email"
 msgstr "Email"
 
-#: .\accounts\templates\accounts\register.html:66
+#: .\accounts\templates\accounts\register.html:80
 msgid "your@email.com"
 msgstr "tvoj@email.com"
 
-#: .\accounts\templates\accounts\register.html:73
+#: .\accounts\templates\accounts\register.html:87
 msgid "Phone Number"
 msgstr "Broj telefona"
 
-#: .\accounts\templates\accounts\register.html:87
+#: .\accounts\templates\accounts\register.html:101
 msgid "Confirm Password"
 msgstr "Potvrdi lozinku"
 
-#: .\accounts\templates\accounts\register.html:92
+#: .\accounts\templates\accounts\register.html:110
+msgid "I agree to the"
+msgstr "Slažem se sa"
+
+#: .\accounts\templates\accounts\register.html:110
+msgid "Privacy Policy"
+msgstr "Politikom privatnosti"
+
+#: .\accounts\templates\accounts\register.html:115
 msgid "Create Account"
 msgstr "Kreiraj račun"
 
-#: .\accounts\templates\accounts\register.html:95
+#: .\accounts\templates\accounts\register.html:118
 msgid "Already have an account?"
 msgstr "Već imaš račun?"
 
-#: .\accounts\templates\accounts\register.html:99
+#: .\accounts\templates\accounts\register.html:122
 msgid "Secure"
 msgstr "Sigurno"
 
-#: .\accounts\templates\accounts\register.html:100
+#: .\accounts\templates\accounts\register.html:123
 msgid "Exclusive offers"
 msgstr "Ekskluzivne ponude"
 
-#: .\accounts\templates\accounts\register.html:101
+#: .\accounts\templates\accounts\register.html:124
 msgid "Members only"
 msgstr "Samo za članove"
 
-#: .\core\settings.py:131
+#: .\core\settings.py:132
 msgid "English"
 msgstr "Engleski"
 
-#: .\core\settings.py:132
+#: .\core\settings.py:133
 msgid "Bosnian"
 msgstr "Bosanski"
 
-#: .\core\settings.py:133
+#: .\core\settings.py:134
 msgid "Arabic"
 msgstr "Arapski"
 
-#: .\meny\templates\meny\base.html:197
+#: .\meny\templates\meny\base.html:201
 msgid "Login for offers"
 msgstr "Prijavi se za ponude"
 
-#: .\meny\templates\meny\base.html:201
+#: .\meny\templates\meny\base.html:205
 msgid "Logout"
 msgstr "Odjavi se"
 
-#: .\meny\templates\meny\base.html:213 .\meny\templates\meny\dashboard.html:62
+#: .\meny\templates\meny\base.html:217
 msgid "Menu"
 msgstr "Meni"
 
-#: .\meny\templates\meny\base.html:214 .\meny\templates\meny\dashboard.html:67
-#: .\meny\templates\meny\news.html:7
+#: .\meny\templates\meny\base.html:218 .\meny\templates\meny\news.html:7
 msgid "News"
 msgstr "Novosti"
 
-#: .\meny\templates\meny\base.html:215 .\meny\templates\meny\dashboard.html:72
+#: .\meny\templates\meny\base.html:219
 msgid "Offers"
 msgstr "Ponude"
 
-#: .\meny\templates\meny\base.html:216 .\meny\templates\meny\dashboard.html:77
+#: .\meny\templates\meny\base.html:220
 msgid "You Matter"
 msgstr "Ti si bitan"
 
-#: .\meny\templates\meny\dashboard.html:7 .\meny\templates\meny\hem.html:7
+#: .\meny\templates\meny\dashboard.html:8 .\meny\templates\meny\hem.html:8
 msgid "Like burgers. But better."
 msgstr "Kao burgeri. Samo bolji."
 
-#: .\meny\templates\meny\dashboard.html:20
+#: .\meny\templates\meny\dashboard.html:21
+msgid "This Week's Pick"
+msgstr "msgstr "Izbor ove sedmice"
+
+#: .\meny\templates\meny\dashboard.html:39
 msgid "Monthly Special"
 msgstr "Mjesečni specijal"
 
-#: .\meny\templates\meny\dashboard.html:35
+#: .\meny\templates\meny\dashboard.html:40
+msgid "Coming Soon"
+msgstr "Dolazi uskoro"
+
+#: .\meny\templates\meny\dashboard.html:41
+msgid "Something special is cooking. Stay tuned."
+msgstr "Nešto posebno se kuha. Pratite nas."
+
+#: .\meny\templates\meny\dashboard.html:47
 msgid "Got the app?"
 msgstr "Imaš aplikaciju?"
 
-#: .\meny\templates\meny\dashboard.html:36
+#: .\meny\templates\meny\dashboard.html:48
 msgid "Exclusive offers are waiting inside. Show your account to redeem."
 msgstr "Ekskluzivne ponude čekaju unutra. Pokaži svoj račun da iskoristiš."
 
-#: .\meny\templates\meny\dashboard.html:37
+#: .\meny\templates\meny\dashboard.html:49
 msgid "View Offers"
 msgstr "Pogledaj ponude"
 
-#: .\meny\templates\meny\dashboard.html:48
+#: .\meny\templates\meny\dashboard.html:63
 msgid "Latest News"
 msgstr "Najnovije vijesti"
 
-#: .\meny\templates\meny\dashboard.html:52
+#: .\meny\templates\meny\dashboard.html:67
 msgid "Read"
 msgstr "Pročitaj"
 
-#: .\meny\templates\meny\hem.html:11
-msgid "All"
-msgstr "SVE"
-
 #: .\meny\templates\meny\hem.html:12
+msgid "All"
+msgstr "Sve"
+
+#: .\meny\templates\meny\hem.html:13
 msgid "Burgers"
 msgstr "Burgeri"
 
-#: .\meny\templates\meny\hem.html:13
+#: .\meny\templates\meny\hem.html:14
 msgid "Sides"
 msgstr "Prilozi"
 
-#: .\meny\templates\meny\hem.html:14
+#: .\meny\templates\meny\hem.html:15
 msgid "Dips"
 msgstr "Umaci"
 
-#: .\meny\templates\meny\hem.html:27
+#: .\meny\templates\meny\hem.html:28
 msgid "Popular"
 msgstr "Popularno"
 
-#: .\meny\templates\meny\hem.html:33
+#: .\meny\templates\meny\hem.html:34
 msgid "No items added yet."
 msgstr "Još nema dodanih stavki."
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-06 07:28+0200\n"
+"POT-Creation-Date: 2026-06-07 12:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,18 +25,18 @@ msgstr "تسجيل الدخول - Burgrs"
 
 #: .\accounts\templates\accounts\login.html:37
 #: .\accounts\templates\accounts\login.html:48
-#: .\accounts\templates\accounts\register.html:95
+#: .\accounts\templates\accounts\register.html:118
 #: .\meny\templates\meny\youmatter.html:15
 msgid "Login"
 msgstr "تسجيل الدخول"
 
 #: .\accounts\templates\accounts\login.html:41
-#: .\accounts\templates\accounts\register.html:59
+#: .\accounts\templates\accounts\register.html:73
 msgid "Username"
 msgstr "اسم المستخدم"
 
 #: .\accounts\templates\accounts\login.html:45
-#: .\accounts\templates\accounts\register.html:81
+#: .\accounts\templates\accounts\register.html:95
 msgid "Password"
 msgstr "كلمة المرور"
 
@@ -52,136 +52,155 @@ msgstr "سجل هنا"
 msgid "Register – Burgrs"
 msgstr "التسجيل – Burgrs"
 
-#: .\accounts\templates\accounts\register.html:52
+#: .\accounts\templates\accounts\register.html:66
 msgid "Join Burgrs"
 msgstr "انضم إلى Burgrs"
 
-#: .\accounts\templates\accounts\register.html:53
+#: .\accounts\templates\accounts\register.html:67
 msgid "Create your account and unlock exclusive offers"
 msgstr "أنشئ حسابك واحصل على عروض حصرية"
 
-#: .\accounts\templates\accounts\register.html:65
+#: .\accounts\templates\accounts\register.html:79
 msgid "Email"
 msgstr "البريد الإلكتروني"
 
-#: .\accounts\templates\accounts\register.html:66
+#: .\accounts\templates\accounts\register.html:80
 msgid "your@email.com"
-msgstr  "بريدك@example.com"
+msgstr "بريدك@example.com"
 
-#: .\accounts\templates\accounts\register.html:73
+#: .\accounts\templates\accounts\register.html:87
 msgid "Phone Number"
 msgstr "رقم الهاتف"
 
-#: .\accounts\templates\accounts\register.html:87
+#: .\accounts\templates\accounts\register.html:101
 msgid "Confirm Password"
 msgstr "تأكيد كلمة المرور"
 
-#: .\accounts\templates\accounts\register.html:92
+#: .\accounts\templates\accounts\register.html:110
+msgid "I agree to the"
+msgstr "أوافق على"
+
+#: .\accounts\templates\accounts\register.html:110
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: .\accounts\templates\accounts\register.html:115
 msgid "Create Account"
 msgstr "إنشاء حساب"
 
-#: .\accounts\templates\accounts\register.html:95
+#: .\accounts\templates\accounts\register.html:118
 msgid "Already have an account?"
 msgstr "هل لديك حساب بالفعل؟"
 
-#: .\accounts\templates\accounts\register.html:99
+#: .\accounts\templates\accounts\register.html:122
 msgid "Secure"
 msgstr "آمن"
 
-#: .\accounts\templates\accounts\register.html:100
+#: .\accounts\templates\accounts\register.html:123
 msgid "Exclusive offers"
 msgstr "عروض حصرية"
 
-#: .\accounts\templates\accounts\register.html:101
+#: .\accounts\templates\accounts\register.html:124
 msgid "Members only"
 msgstr "للأعضاء فقط"
 
-#: .\core\settings.py:131
+#: .\core\settings.py:132
 msgid "English"
 msgstr "English"
 
-#: .\core\settings.py:132
+#: .\core\settings.py:133
 msgid "Bosnian"
 msgstr "Bosanski"
 
-#: .\core\settings.py:133
+#: .\core\settings.py:134
 msgid "Arabic"
 msgstr "العربية"
 
-#: .\meny\templates\meny\base.html:197
+#: .\meny\templates\meny\base.html:201
 msgid "Login for offers"
 msgstr "سجل الدخول للعروض"
 
-#: .\meny\templates\meny\base.html:201
+#: .\meny\templates\meny\base.html:205
 msgid "Logout"
 msgstr "تسجيل الخروج"
 
-#: .\meny\templates\meny\base.html:213 .\meny\templates\meny\dashboard.html:62
+#: .\meny\templates\meny\base.html:217
 msgid "Menu"
 msgstr "القائمة"
 
-#: .\meny\templates\meny\base.html:214 .\meny\templates\meny\dashboard.html:67
-#: .\meny\templates\meny\news.html:7
+#: .\meny\templates\meny\base.html:218 .\meny\templates\meny\news.html:7
 msgid "News"
 msgstr "الأخبار"
 
-#: .\meny\templates\meny\base.html:215 .\meny\templates\meny\dashboard.html:72
+#: .\meny\templates\meny\base.html:219
 msgid "Offers"
 msgstr "العروض"
 
-#: .\meny\templates\meny\base.html:216 .\meny\templates\meny\dashboard.html:77
+#: .\meny\templates\meny\base.html:220
 msgid "You Matter"
 msgstr "أنت مهم"
 
-#: .\meny\templates\meny\dashboard.html:7 .\meny\templates\meny\hem.html:7
+#: .\meny\templates\meny\dashboard.html:8 .\meny\templates\meny\hem.html:8
 msgid "Like burgers. But better."
 msgstr "مثل البرغر. لكن أفضل."
 
-#: .\meny\templates\meny\dashboard.html:20
+#: .\meny\templates\meny\dashboard.html:21
+msgid "This Week's Pick"
+msgstr "اختيار هذا الأسبوع"
+
+#: .\meny\templates\meny\dashboard.html:39
 msgid "Monthly Special"
 msgstr "العرض الشهري"
 
-#: .\meny\templates\meny\dashboard.html:35
+#: .\meny\templates\meny\dashboard.html:40
+msgid "Coming Soon"
+msgstr "قريباً"
+
+#: .\meny\templates\meny\dashboard.html:41
+msgid "Something special is cooking. Stay tuned."
+msgstr "شيء مميز قيد التحضير. تابعونا"
+
+#: .\meny\templates\meny\dashboard.html:47
 msgid "Got the app?"
 msgstr "هل لديك التطبيق؟"
 
-#: .\meny\templates\meny\dashboard.html:36
+#: .\meny\templates\meny\dashboard.html:48
 msgid "Exclusive offers are waiting inside. Show your account to redeem."
 msgstr "العروض الحصرية في انتظارك. أظهر حسابك للاستفادة."
 
-#: .\meny\templates\meny\dashboard.html:37
+#: .\meny\templates\meny\dashboard.html:49
 msgid "View Offers"
 msgstr "عرض العروض"
 
-#: .\meny\templates\meny\dashboard.html:48
+#: .\meny\templates\meny\dashboard.html:63
 msgid "Latest News"
 msgstr "آخر الأخبار"
 
-#: .\meny\templates\meny\dashboard.html:52
+#: .\meny\templates\meny\dashboard.html:67
 msgid "Read"
 msgstr "اقرأ"
 
-#: .\meny\templates\meny\hem.html:11
+#: .\meny\templates\meny\hem.html:12
 msgid "All"
 msgstr "الكل"
 
-#: .\meny\templates\meny\hem.html:12
+#: .\meny\templates\meny\hem.html:13
 msgid "Burgers"
 msgstr "برغر"
 
-#: .\meny\templates\meny\hem.html:13
+#: .\meny\templates\meny\hem.html:14
 msgid "Sides"
 msgstr "أطباق جانبية"
 
-#: .\meny\templates\meny\hem.html:14
+#: .\meny\templates\meny\hem.html:15
 msgid "Dips"
 msgstr "صلصات"
 
-#: .\meny\templates\meny\hem.html:27
+#: .\meny\templates\meny\hem.html:28
 msgid "Popular"
 msgstr "رائج"
 
-#: .\meny\templates\meny\hem.html:33
+#: .\meny\templates\meny\hem.html:34
 msgid "No items added yet."
 msgstr "لا توجد عناصر مضافة بعد."
 
