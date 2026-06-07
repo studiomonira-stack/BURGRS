@@ -154,7 +154,7 @@ msgstr "Mjesečni specijal"
 
 #: .\meny\templates\meny\dashboard.html:40
 msgid "Coming Soon"
-msgstr "Dolazi uskoro"
+msgstr "Dolazi uskoro" 
 
 #: .\meny\templates\meny\dashboard.html:41
 msgid "Something special is cooking. Stay tuned."
