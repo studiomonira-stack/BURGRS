@@ -21,19 +21,19 @@ msgstr ""
 
 #: .\accounts\templates\accounts\login.html:8
 msgid "Login – Burgrs"
-msgstr ""
+msgstr "Prijava – Burgrs"
 
 #: .\accounts\templates\accounts\login.html:37
 #: .\accounts\templates\accounts\login.html:48
 #: .\accounts\templates\accounts\register.html:118
 #: .\meny\templates\meny\youmatter.html:15
 msgid "Login"
-msgstr "Prijava – Burgrs"
+msgstr "Prijava"
 
 #: .\accounts\templates\accounts\login.html:41
 #: .\accounts\templates\accounts\register.html:73
 msgid "Username"
-msgstr "Prijava"
+msgstr "Korisničko ime"
 
 #: .\accounts\templates\accounts\login.html:45
 #: .\accounts\templates\accounts\register.html:95
