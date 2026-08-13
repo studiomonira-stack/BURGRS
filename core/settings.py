@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,11 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-_2^1iy^^ij_nla&ekybma1$xkm=9=a2**h7)y_%8=0zbdz+#83'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -77,12 +74,28 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+import os
+
+if 'PYTHONANYWHERE_DOMAIN' in os.environ:
+    # PythonAnywhere - MySQL
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'MoniraElCharif$burgrs_db',
+            'USER': 'MoniraElCharif',
+            'PASSWORD': '(Diamant2018?)',
+            'HOST': 'MoniraElCharif.mysql.pythonanywhere-services.com',
+            'PORT': '3306',
+        }
     }
-}
+else:
+    # Lokalt - SQLite
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -124,7 +137,14 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'account_login'
 DEBUG = False
-ALLOWED_HOSTS = ['MoniraElCharif.pythonanywhere.com', 'www.MoniraElCharif.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    'MoniraElCharif.pythonanywhere.com',
+    'www.MoniraElCharif.pythonanywhere.com',
+    'app.burgrs.com',
+    '127.0.0.1',
+    'localhost',
+]
+
 STATIC_ROOT = '/home/MoniraElCharif/burgrs/staticfiles'
 STATIC_URL = '/static/'
 
@@ -138,3 +158,7 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
 LANGUAGE_COOKIE_NAME = 'django_language'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

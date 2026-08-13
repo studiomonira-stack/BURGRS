@@ -3,6 +3,7 @@ from .models import Burgare, Nyhet, Erbjudande, Banner
 
 class BurgareAdmin(admin.ModelAdmin):
     list_display = ('ordning', 'namn', 'kategori', 'pris', 'popular')
+    list_display_links = ('namn',)
     list_filter = ('kategori', 'popular')
     list_editable = ('ordning',)
 
