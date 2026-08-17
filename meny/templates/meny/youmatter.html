@@ -10,7 +10,7 @@
         <p style="color: var(--light-gray); font-size: 0.9rem; margin-bottom: 2rem;">{% trans "Your voice shapes Burgrs. Every visit. Every bite. Every thought." %}</p>
 
         <!-- Next Special -->
-<h2 style="font-size: 1.2rem; margin-bottom: 1rem;">🗳 {% trans "Next Special" %}</h2>
+<h2 style="font-size: 1.2rem; margin-bottom: 1.5rem;">🗳 {% trans "Next Special" %}</h2>
 
 {% if not user.is_authenticated %}
     <p style="color: var(--light-gray); font-size: 0.8rem;">
@@ -50,7 +50,7 @@
 {% endif %}
 
         <!-- Feedback -->
-        <h2 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem;">{% trans "Feedback? We want to hear from you!" %}</h2>
+        <h2 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1.5rem;">{% trans "Feedback? We want to hear from you!" %}</h2>
         <form method="post" action="https://formspree.io/f/maqkrroz">
             {% csrf_token %}
             <textarea name="suggestion" class="form-control mb-2" rows="2" placeholder="{% trans 'Your idea...' %}" style="background: var(--dark-gray); color: white; border: 1px solid #333; font-size: 0.85rem;"></textarea>
