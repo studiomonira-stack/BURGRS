@@ -138,8 +138,6 @@ LOGOUT_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'account_login'
 DEBUG = False
 ALLOWED_HOSTS = [
-    'MoniraElCharif.pythonanywhere.com',
-    'www.MoniraElCharif.pythonanywhere.com',
     'app.burgrs.com',
     '127.0.0.1',
     'localhost',
