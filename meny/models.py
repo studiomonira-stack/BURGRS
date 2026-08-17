@@ -75,6 +75,7 @@ class AnvantErbjudande(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.erbjudande.titel}"
 
+
 class Banner(models.Model):
     TYP = [
         ('static', 'Static'),
@@ -90,3 +91,17 @@ class Banner(models.Model):
 
     def __str__(self):
         return self.text[:50]
+
+
+class PollAlternativ(models.Model):
+    namn = models.CharField(max_length=100)
+    aktiv = models.BooleanField(default=True)
+    ordning = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        verbose_name = "Poll-alternativ"
+        verbose_name_plural = "Poll-alternativ"
+        ordering = ['ordning']
+    
+    def __str__(self):
+        return self.namn

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Burgare, Nyhet, Erbjudande, Banner
+from .models import PollAlternativ
 
 class BurgareAdmin(admin.ModelAdmin):
     list_display = ('ordning', 'namn', 'kategori', 'pris', 'popular')
@@ -25,3 +26,8 @@ class NyhetAdmin(admin.ModelAdmin):
     list_display = ('titel', 'publicerad')
 
 admin.site.register(Nyhet, NyhetAdmin)
+
+@admin.register(PollAlternativ)
+class PollAlternativAdmin(admin.ModelAdmin):
+    list_display = ('namn', 'aktiv', 'ordning')
+    list_editable = ('aktiv', 'ordning')

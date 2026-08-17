@@ -1,21 +1,24 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Burgare, Nyhet, Erbjudande, Rost, AnvantErbjudande
+from .models import Burgare, Nyhet, Erbjudande, PollAlternativ, Rost, AnvantErbjudande
 
 def hem(request):
     burgare = Burgare.objects.all().order_by('ordning', '-popular', '-skapad')
     return render(request, 'meny/hem.html', {'burgare': burgare})
 
-from .models import Burgare, Nyhet, Erbjudande, Rost
-
 def youmatter(request):
     google_review_url = "https://tinyurl.com/burgrssarajevo"
     
-    # Räkna röster
-    rost_truffle = Rost.objects.filter(val='truffle').count()
-    rost_sambal = Rost.objects.filter(val='sambal').count()
-    rost_balkan = Rost.objects.filter(val='balkan').count()
-    total_rost = rost_truffle + rost_sambal + rost_balkan
+    # Hämta alla aktiva poll-alternativ
+    poll_alternativ = PollAlternativ.objects.filter(aktiv=True).order_by('ordning')
+    
+    # Räkna röster per alternativ
+    rost_resultat = []
+    for alt in poll_alternativ:
+        antal = Rost.objects.filter(val=alt.namn).count()
+        rost_resultat.append({'namn': alt.namn, 'antal': antal})
+    
+    total_rost = sum(r['antal'] for r in rost_resultat)
     
     # Har användaren redan röstat?
     har_rostat = False
@@ -24,9 +27,8 @@ def youmatter(request):
     
     return render(request, 'meny/youmatter.html', {
         'google_review_url': google_review_url,
-        'rost_truffle': rost_truffle,
-        'rost_sambal': rost_sambal,
-        'rost_balkan': rost_balkan,
+        'poll_alternativ': poll_alternativ,
+        'rost_resultat': rost_resultat,
         'total_rost': total_rost,
         'har_rostat': har_rostat,
     })
@@ -34,9 +36,10 @@ def youmatter(request):
 
 def rosta(request):
     if request.method == 'POST' and request.user.is_authenticated:
-        val = request.POST.get('val')
-        if val and not Rost.objects.filter(user=request.user).exists():
-            Rost.objects.create(user=request.user, val=val)
+        alt_id = request.POST.get('val')
+        if alt_id and not Rost.objects.filter(user=request.user).exists():
+            alternativ = get_object_or_404(PollAlternativ, id=alt_id, aktiv=True)
+            Rost.objects.create(user=request.user, val=alternativ.namn)
     return redirect('youmatter')
 
 def nyheter(request):

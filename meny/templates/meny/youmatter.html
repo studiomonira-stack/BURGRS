@@ -10,25 +10,31 @@
         <p style="color: var(--light-gray); font-size: 0.9rem; margin-bottom: 2rem;">{% trans "Your voice shapes Burgrs. Every visit. Every bite. Every thought." %}</p>
 
         <!-- Bring it back -->
-        <h2 style="font-size: 1.2rem;">🗳 {% trans "Bring it back?" %}</h2>
-        {% if not user.is_authenticated %}
-            <p style="color: var(--light-gray); font-size: 0.8rem;"><a href="{% url 'account_login' %}" style="color: var(--yellow);">{% trans "Login" %}</a> {% trans "to vote!" %}</p>
-        {% elif har_rostat %}
-            <p style="color: var(--yellow); font-size: 0.85rem;">✅ {% trans "Thanks for voting!" %}</p>
-            <div class="mt-2" style="font-size: 0.8rem;">
-                <p style="color: var(--light-gray); margin: 2px 0;">The Truffle Beast: {{ rost_truffle }} {% trans "votes" %}</p>
-                <p style="color: var(--light-gray); margin: 2px 0;">Spicy Sambal Crunch: {{ rost_sambal }} {% trans "votes" %}</p>
-                <p style="color: var(--light-gray); margin: 2px 0;">Balkan Breakfast: {{ rost_balkan }} {% trans "votes" %}</p>
-                <p style="color: var(--yellow); margin-top: 4px;">{% trans "Total:" %} {{ total_rost }} {% trans "votes" %}</p>
-            </div>
-        {% else %}
-            <form method="post" action="{% url 'rosta' %}">
-                {% csrf_token %}
-                <button type="submit" name="val" value="truffle" class="btn btn-outline-warning btn-sm mb-2 w-100">The Truffle Beast</button>
-                <button type="submit" name="val" value="sambal" class="btn btn-outline-warning btn-sm mb-2 w-100">Spicy Sambal Crunch</button>
-                <button type="submit" name="val" value="balkan" class="btn btn-outline-warning btn-sm w-100">Balkan Breakfast Burger</button>
-            </form>
-        {% endif %}
+<h2 style="font-size: 1.2rem;">🗳 {% trans "Next Special" %}</h2>
+
+{% if not user.is_authenticated %}
+    <p style="color: var(--light-gray); font-size: 0.8rem;">
+        <a href="{% url 'account_login' %}" style="color: var(--yellow);">{% trans "Login" %}</a> 
+        {% trans "to vote!" %}
+    </p>
+    
+{% elif har_rostat %}
+    <p style="color: var(--yellow); font-size: 0.85rem;">✅ {% trans "Thanks for voting!" %}</p>
+    <div class="mt-2" style="font-size: 0.8rem;">
+        {% for resultat in rost_resultat %}
+            <p style="color: var(--light-gray); margin: 2px 0;">{{ resultat.namn }}: {{ resultat.antal }} {% trans "votes" %}</p>
+        {% endfor %}
+        <p style="color: var(--yellow); margin-top: 4px;">{% trans "Total:" %} {{ total_rost }} {% trans "votes" %}</p>
+    </div>
+    
+{% else %}
+    <form method="post" action="{% url 'rosta' %}">
+        {% csrf_token %}
+        {% for alt in poll_alternativ %}
+            <button type="submit" name="val" value="{{ alt.id }}" class="btn btn-outline-warning btn-sm mb-2 w-100">{{ alt.namn }}</button>
+        {% endfor %}
+    </form>
+{% endif %}
 
         <!-- Feedback -->
         <h2 style="font-size: 1.2rem; margin-top: 2rem;">{% trans "Feedback? We want to hear from you!" %}</h2>
