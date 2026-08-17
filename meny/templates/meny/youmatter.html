@@ -9,7 +9,7 @@
         <h1 style="font-size: 2rem;">{% trans "YOU MATTER." %}</h1>
         <p style="color: var(--light-gray); font-size: 0.9rem; margin-bottom: 2rem;">{% trans "Your voice shapes Burgrs. Every visit. Every bite. Every thought." %}</p>
 
-        <!-- Bring it back -->
+        <!-- Next Special -->
 <h2 style="font-size: 1.2rem;">🗳 {% trans "Next Special" %}</h2>
 
 {% if not user.is_authenticated %}
@@ -22,17 +22,30 @@
     <p style="color: var(--yellow); font-size: 0.85rem;">✅ {% trans "Thanks for voting!" %}</p>
     <div class="mt-2" style="font-size: 0.8rem;">
         {% for resultat in rost_resultat %}
-            <p style="color: var(--light-gray); margin: 2px 0;">{{ resultat.namn }}: {{ resultat.antal }} {% trans "votes" %}</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0; padding: 6px 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                <span style="color: var(--light-gray);">{{ resultat.namn }}</span>
+                <span style="color: var(--yellow); font-weight: 600;">{{ resultat.antal }}</span>
+            </div>
         {% endfor %}
-        <p style="color: var(--yellow); margin-top: 4px;">{% trans "Total:" %} {{ total_rost }} {% trans "votes" %}</p>
+        <div style="display: flex; justify-content: space-between; margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <span style="color: var(--yellow);">{% trans "Total:" %}</span>
+            <span style="color: var(--yellow); font-weight: 600;">{{ total_rost }}</span>
+        </div>
     </div>
     
 {% else %}
-    <form method="post" action="{% url 'rosta' %}">
+    <form method="post" action="{% url 'rosta' %}" id="poll-form">
         {% csrf_token %}
-        {% for alt in poll_alternativ %}
-            <button type="submit" name="val" value="{{ alt.id }}" class="btn btn-outline-warning btn-sm mb-2 w-100">{{ alt.namn }}</button>
-        {% endfor %}
+        <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+            {% for alt in poll_alternativ %}
+                <label style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; color: var(--light-gray);">
+                    <input type="radio" name="val" value="{{ alt.id }}" 
+                           style="width: 16px; height: 16px; accent-color: var(--yellow); cursor: pointer; flex-shrink: 0;">
+                    <span>{{ alt.namn }}</span>
+                </label>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-warning btn-sm w-100 mt-2" style="border-radius: 10px;">{% trans "Rösta" %}</button>
     </form>
 {% endif %}
 
