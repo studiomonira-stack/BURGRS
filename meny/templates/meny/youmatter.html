@@ -45,7 +45,7 @@
                 </label>
             {% endfor %}
         </div>
-        <button type="submit" class="btn btn-warning btn-sm w-100 mt-2" style="border-radius: 10px;">{% trans "✓" %}</button>
+        <button type="submit" class="btn btn-sm w-100 mt-2" style="border-radius: 10px; background: var(--yellow); color: #0B0B0B; border: none;">{% trans "Vote" %}</button>
     </form>
 {% endif %}
 
@@ -54,13 +54,13 @@
         <form method="post" action="https://formspree.io/f/maqkrroz">
             {% csrf_token %}
             <textarea name="suggestion" class="form-control mb-2" rows="2" placeholder="{% trans 'Your idea...' %}" style="background: var(--dark-gray); color: white; border: 1px solid #333; font-size: 0.85rem;"></textarea>
-            <button type="submit" class="btn btn-primary btn-sm w-100">{% trans "Send" %}</button>
+            <button type="submit" class="btn btn-sm w-100" style="border-radius: 10px; background: var(--yellow); color: #0B0B0B; border: none;">{% trans "Send" %}</button>
         </form>
     </div>
 
     <!-- HÖGER: Recensioner -->
     <div class="col-lg-6">
-        <h2 style="font-size: 1.2rem;">⭐ {% trans "Leave a review" %}</h2>
+        <h2 style="font-size: 1.2rem;">{% trans "Leave a review" %}</h2>
         <a href="{{ google_review_url }}" target="_blank" class="btn btn-primary btn-sm mb-3">{% trans "Write on Google" %}</a>
 
         <div class="card p-2 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
