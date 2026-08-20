@@ -36,11 +36,19 @@ class Nyhet(models.Model):
 
 
 class Erbjudande(models.Model):
+    CARD_STYLES = [
+        ('dark', 'Dark'),
+        ('light', 'Light'),
+        ('image', 'Image'),
+    ]
+    
     titel = models.CharField(max_length=200)
     text = models.TextField()
     kod = models.CharField(max_length=50, blank=True)
     bild_url = models.URLField(max_length=500, blank=True)
+    card_style = models.CharField(max_length=10, choices=CARD_STYLES, default='dark')
     publicerad = models.DateTimeField(auto_now_add=True)
+    aktiv = models.BooleanField(default=True)
 
     def __str__(self):
         return self.titel
@@ -105,3 +113,5 @@ class PollAlternativ(models.Model):
     
     def __str__(self):
         return self.namn
+
+

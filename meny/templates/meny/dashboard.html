@@ -3,14 +3,30 @@
 {% load static %}
 {% block content %}
 
-<section class="text-center mt-4">
-    <img src="{% static 'images/Burgrs-sarajevo-ny-logga-2.webp' %}" alt="Burgrs Sarajevo" style="height: 120px;">
-    <p class="lead mt-2" style="color: var(--yellow);">{% trans "Like burgers. But better." %}</p>
+<section class="text-center" style="padding: 60px 0 20px;">
+    <h1 style="font-family: 'Archivo', sans-serif; font-weight: 700; letter-spacing: 2px; color: var(--yellow); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1;">
+        Burgrs
+    </h1>
+   <p class="lead mt-2 mb-4" style="color: var(--light-gray);">{% trans "Like burgers. But better." %}</p>
 </section>
 
+<!-- OFFERS HÖGST UPP -->
+<div class="row mt-4">
+    <div class="col-lg-6 mx-auto">
+        <div class="card p-4 text-center" style="background: var(--dark-gray); border: 1px solid var(--yellow);">
+            <h5 style="font-size: 1.5rem;">{% trans "Good food. Great rewards." %}</h5>
+            <p style="color: var(--light-gray); font-size: 0.9rem;">{% trans "Exclusive offers are waiting inside." %}</p>
+            <div>
+    <a href="{% url 'erbjudanden' %}" class="btn btn-primary btn-sm mt-2 mx-auto" style="display: inline-block;">{% trans "View Offers" %}</a>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- THIS WEEK'S PICK -->
 {% if featured %}
-<div class="row mt-5">
-    <div class="col-lg-8 mx-auto">
+<div class="row mt-4">
+    <div class="col-lg-6 mx-auto">
         <div class="card" style="background: var(--dark-gray); border: 1px solid #333;">
             <div class="row g-0">
                 <div class="col-md-5">
@@ -30,33 +46,21 @@
 </div>
 {% endif %}
 
+<!-- MONTHLY SPECIAL -->
 <div class="row mt-4">
-    <div class="col-lg-8 mx-auto">
-        <div class="row g-3">
-            
-            <div class="col-md-6">
-                <div class="card p-4 h-100 text-center" style="background: var(--dark-gray); border: 1px solid var(--yellow);">
-                    <span class="badge mb-2 mx-auto" style="background: var(--yellow); color: var(--black);">🌟 {% trans "Monthly Special" %}</span>
-                    <h5 style="font-size: 1.3rem;">{% trans "Coming Soon" %}</h5>
-                    <p style="color: var(--light-gray); font-size: 0.85rem;">{% trans "Something special is cooking. Stay tuned." %}</p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="card p-4 h-100 text-center" style="background: var(--dark-gray); border: 1px solid #222;">
-                    <h5 style="font-size: 1.3rem;">📱 {% trans "Got the app?" %}</h5>
-                    <p style="color: var(--light-gray); font-size: 0.85rem;">{% trans "Exclusive offers are waiting inside. Show your account to redeem." %}</p>
-                    <a href="{% url 'erbjudanden' %}" class="btn btn-primary btn-sm mt-2">{% trans "View Offers" %}</a>
-                </div>
-            </div>
-            
+    <div class="col-lg-6 mx-auto">
+        <div class="card p-4 text-center" style="background: var(--dark-gray); border: 1px solid #222;">
+            <span class="badge mb-2 mx-auto" style="background: var(--yellow); color: var(--black);">🌟 {% trans "Monthly Special" %}</span>
+            <h5 style="font-size: 1.3rem;">{% trans "Coming Soon" %}</h5>
+            <p style="color: var(--light-gray); font-size: 0.85rem;">{% trans "Something special is cooking. Stay tuned." %}</p>
         </div>
     </div>
 </div>
 
+<!-- LATEST NEWS -->
 {% if senaste_nyhet %}
 <div class="row mt-4">
-    <div class="col-lg-8 mx-auto">
+    <div class="col-lg-6 mx-auto">
         <div class="card p-3" style="background: var(--dark-gray); border: 1px solid #222;">
             <div class="d-flex justify-content-between align-items-center">
                 <div>

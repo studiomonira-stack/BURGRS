@@ -2,40 +2,108 @@
 {% load i18n %}
 {% block content %}
 
-<div class="row mt-4">
+<div class="row mt-4" style="padding-top: 40px;">
     <div class="col-lg-8 mx-auto">
-        <h1 style="font-size: 2rem;">🎁 {% trans "Exclusive Offers" %}</h1>
-        <p style="color: var(--light-gray); font-size: 0.9rem;">{% trans "For app members only. Show your account to redeem." %}</p>
+        <h1 style="color: var(--yellow); font-family: 'Archivo', sans-serif; font-weight: 700; letter-spacing: 1px; font-size: clamp(1.5rem, 3vw, 2.5rem);">{% trans "Exclusive offers" %}</h1>
+        <p style="color: var(--white); font-size: 0.9rem;">{% trans "For app members only. Show your account to redeem." %}</p>
     </div>
 </div>
 
 <div class="row mt-4">
     <div class="col-lg-8 mx-auto">
-        {% for erbjudande in erbjudanden %}
-            <div class="card mb-3" style="background: var(--dark-gray); border: 1px solid #333;">
-                {% if erbjudande.bild_url %}
-                    <img src="{{ erbjudande.bild_url }}" class="card-img-top" alt="{{ erbjudande.titel }}" style="height: 180px; object-fit: cover;">
-                {% endif %}
-                <div class="card-body">
-                    <h5 style="font-size: 1.2rem;">{{ erbjudande.titel }}</h5>
-                    <p style="color: var(--light-gray); font-size: 0.9rem;">{{ erbjudande.text }}</p>
-                    
-                    {% if erbjudande.id in anvanda %}
-                        <p style="color: #e74c3c; font-size: 0.85rem;">❌ {% trans "Already used" %}</p>
-                    {% else %}
-                        {% if erbjudande.kod %}
-                            <p style="color: var(--yellow);"><strong>{% trans "Code:" %}</strong> {{ erbjudande.kod }}</p>
+        {% if erbjudanden %}
+            <div class="row g-3">
+                {% for erbjudande in erbjudanden %}
+                    <div class="col-md-6">
+                        {% if erbjudande.card_style == 'dark' %}
+                        <!-- DARK CARD -->
+                        <div style="background: var(--black); border: 1px solid #333; border-radius: 16px; padding: 28px 24px; position: relative; overflow: hidden;">
+                            <div style="position: absolute; right: -20px; bottom: -20px; opacity: 0.05; font-size: 8rem; font-weight: 700; color: var(--yellow);">B</div>
+                            <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--yellow); margin: 0 0 4px 0; line-height: 1;">{{ erbjudande.titel }}</h2>
+                            <p style="color: var(--white); font-size: 0.9rem; margin: 0;">{{ erbjudande.text }}</p>
+                            
+                            <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                {% if erbjudande.kod %}
+                                    <div style="background: rgba(245, 166, 35, 0.12); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(245, 166, 35, 0.25);">
+                                        <span style="color: var(--yellow); font-size: 0.8rem; font-weight: 600;">{{ erbjudande.kod }}</span>
+                                    </div>
+                                {% endif %}
+                                {% if erbjudande.id in anvanda %}
+                                    <p style="color: #e74c3c; font-size: 0.9rem; margin: 0;">❌ {% trans "Already used" %}</p>
+                                {% else %}
+                                    <form method="post" action="{% url 'anvand_erbjudande' erbjudande.id %}" style="margin: 0;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.75rem; font-weight: 700; border-radius: 6px; background: var(--yellow); color: var(--black); border: none;">{% trans "Redeem" %}</button>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        {% elif erbjudande.card_style == 'light' %}
+                        <!-- LIGHT CARD -->
+                        <div style="background: var(--white); border: 1px solid #ddd; border-radius: 16px; padding: 28px 24px;">
+                            <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--black); margin: 0 0 4px 0; line-height: 1;">{{ erbjudande.titel }}</h2>
+                            <p style="color: #555; font-size: 0.9rem; margin: 0;">{{ erbjudande.text }}</p>
+                            
+                            <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                {% if erbjudande.kod %}
+                                    <div style="background: rgba(245, 166, 35, 0.2); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(245, 166, 35, 0.4);">
+                                        <span style="color: var(--black); font-size: 0.8rem; font-weight: 600;">{{ erbjudande.kod }}</span>
+                                    </div>
+                                {% endif %}
+                                {% if erbjudande.id in anvanda %}
+                                    <p style="color: #e74c3c; font-size: 0.9rem; margin: 0;">❌ {% trans "Already used" %}</p>
+                                {% else %}
+                                    <form method="post" action="{% url 'anvand_erbjudande' erbjudande.id %}" style="margin: 0;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.75rem; font-weight: 700; border-radius: 6px; background: var(--yellow); color: var(--black); border: none;">{% trans "Redeem" %}</button>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        {% else %}
+                        <!-- IMAGE CARD -->
+                        <div style="background: var(--black); border: 1px solid #333; border-radius: 16px; overflow: hidden;">
+                            <div class="row g-0">
+                                <div class="col-md-7">
+                                    <div style="padding: 28px 24px;">
+                                        <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--yellow); margin: 0 0 4px 0; line-height: 1;">{{ erbjudande.titel }}</h2>
+                                        <p style="color: var(--white); font-size: 0.9rem; margin: 0;">{{ erbjudande.text }}</p>
+                                        
+                                        <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                            {% if erbjudande.kod %}
+                                                <div style="background: rgba(245, 166, 35, 0.12); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(245, 166, 35, 0.25);">
+                                                    <span style="color: var(--yellow); font-size: 0.8rem; font-weight: 600;">{{ erbjudande.kod }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if erbjudande.id in anvanda %}
+                                                <p style="color: #e74c3c; font-size: 0.9rem; margin: 0;">❌ {% trans "Already used" %}</p>
+                                            {% else %}
+                                                <form method="post" action="{% url 'anvand_erbjudande' erbjudande.id %}" style="margin: 0;">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.75rem; font-weight: 700; border-radius: 6px; background: var(--yellow); color: var(--black); border: none;">{% trans "Redeem" %}</button>
+                                                </form>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if erbjudande.bild_url %}
+                                    <div class="col-md-5" style="position: relative;">
+                                        <img src="{{ erbjudande.bild_url }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+                                        <div style="position: absolute; inset: 0; background: linear-gradient(to right, var(--black) 0%, transparent 100%);"></div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
                         {% endif %}
-                        <form method="post" action="{% url 'anvand_erbjudande' erbjudande.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-primary btn-sm">{% trans "Redeem Offer" %}</button>
-                        </form>
-                    {% endif %}
-                </div>
+                        
+                    </div>
+                {% endfor %}
             </div>
-        {% empty %}
+        {% else %}
             <p style="color: var(--light-gray);">{% trans "No offers right now. Check back soon!" %}</p>
-        {% endfor %}
+        {% endif %}
     </div>
 </div>
 

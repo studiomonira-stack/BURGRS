@@ -16,11 +16,11 @@ class BannerAdmin(admin.ModelAdmin):
 
 admin.site.register(Banner, BannerAdmin)
 
+@admin.register(Erbjudande)
 class ErbjudandeAdmin(admin.ModelAdmin):
-    list_display = ('titel', 'publicerad')
-    list_filter = ('publicerad',)
-
-admin.site.register(Erbjudande, ErbjudandeAdmin)
+    list_display = ('titel', 'card_style', 'aktiv', 'publicerad')
+    list_filter = ('card_style', 'aktiv')
+    list_editable = ('card_style', 'aktiv')
 
 class NyhetAdmin(admin.ModelAdmin):
     list_display = ('titel', 'publicerad')

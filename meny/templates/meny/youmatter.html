@@ -2,87 +2,81 @@
 {% load i18n %}
 {% block content %}
 
-<div class="row mt-4 g-4">
-
-    <!-- VÄNSTER -->
-    <div class="col-lg-6">
-        <h1 style="font-size: 2rem;">{% trans "YOU MATTER." %}</h1>
-        <p style="color: var(--light-gray); font-size: 0.9rem; margin-bottom: 2rem;">{% trans "Your voice shapes Burgrs. Every visit. Every bite. Every thought." %}</p>
+<div class="row mt-4" style="padding-top: 40px;">
+    <div class="col-lg-6 mx-auto">
+        <h1 style="color: var(--yellow); font-family: 'Archivo', sans-serif; font-weight: 700; letter-spacing: 1px; font-size: clamp(1.5rem, 3vw, 2.5rem);">{% trans "You matter." %}</h1>
+        <p style="color: var(--white); font-size: 0.9rem; margin-bottom: 32px;">{% trans "Your voice shapes Burgrs. Every visit. Every bite. Every thought." %}</p>
 
         <!-- Next Special -->
-<h2 style="font-size: 1.2rem; margin-bottom: 1.5rem;">🗳 {% trans "Next Special" %}</h2>
+        <h2 style="font-size: 1.2rem; color: var(--light-gray);">{% trans "Next Special" %}</h2>
 
-{% if not user.is_authenticated %}
-    <p style="color: var(--light-gray); font-size: 0.8rem;">
-        <a href="{% url 'account_login' %}" style="color: var(--yellow);">{% trans "Login" %}</a> 
-        {% trans "to vote!" %}
-    </p>
-    
-{% elif har_rostat %}
-    <p style="color: var(--yellow); font-size: 0.85rem;">✅ {% trans "Thanks for voting!" %}</p>
-    <div class="mt-2" style="font-size: 0.8rem;">
-        {% for resultat in rost_resultat %}
-            <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0; padding: 6px 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-                <span style="color: var(--light-gray);">{{ resultat.namn }}</span>
-                <span style="color: var(--yellow); font-weight: 600;">{{ resultat.antal }}</span>
+        {% if not user.is_authenticated %}
+            <p style="color: var(--light-gray); font-size: 0.8rem;">
+                <a href="{% url 'account_login' %}" style="color: var(--yellow);">{% trans "Login" %}</a> 
+                {% trans "to vote!" %}
+            </p>
+            
+        {% elif har_rostat %}
+            <p style="color: var(--yellow); font-size: 0.85rem;">✅ {% trans "Thanks for voting!" %}</p>
+            <div class="mt-2" style="font-size: 0.8rem;">
+                {% for resultat in rost_resultat %}
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0; padding: 6px 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                        <span style="color: var(--light-gray);">{{ resultat.namn }}</span>
+                        <span style="color: var(--yellow); font-weight: 600;">{{ resultat.antal }}</span>
+                    </div>
+                {% endfor %}
+                <div style="display: flex; justify-content: space-between; margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <span style="color: var(--yellow);">{% trans "Total:" %}</span>
+                    <span style="color: var(--yellow); font-weight: 600;">{{ total_rost }}</span>
+                </div>
             </div>
-        {% endfor %}
-        <div style="display: flex; justify-content: space-between; margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.1);">
-            <span style="color: var(--yellow);">{% trans "Total:" %}</span>
-            <span style="color: var(--yellow); font-weight: 600;">{{ total_rost }}</span>
-        </div>
-    </div>
-    
-{% else %}
-    <form method="post" action="{% url 'rosta' %}" id="poll-form">
-        {% csrf_token %}
-        <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
-            {% for alt in poll_alternativ %}
-                <label style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; color: var(--light-gray);">
-                    <input type="radio" name="val" value="{{ alt.id }}" 
-                           style="width: 16px; height: 16px; accent-color: var(--yellow); cursor: pointer; flex-shrink: 0;">
-                    <span>{{ alt.namn }}</span>
-                </label>
-            {% endfor %}
-        </div>
-       <button type="submit" class="btn btn-primary btn-sm w-100 mt-2" style="border-radius: 10px;">{% trans "Vote" %}</button>
-    </form>
-{% endif %}
+            
+        {% else %}
+            <form method="post" action="{% url 'rosta' %}" id="poll-form">
+                {% csrf_token %}
+                <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+                    {% for alt in poll_alternativ %}
+                        <label style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; color: var(--light-gray);">
+                            <input type="radio" name="val" value="{{ alt.id }}" 
+                                   style="width: 16px; height: 16px; accent-color: var(--yellow); cursor: pointer; flex-shrink: 0;">
+                            <span>{{ alt.namn }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm w-100 mt-2" style="border-radius: 10px;">{% trans "Vote" %}</button>
+            </form>
+        {% endif %}
 
-        <!-- Feedback -->
-        <h2 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1.5rem;">{% trans "Feedback? We want to hear from you!" %}</h2>
+
+        <!-- Recensioner -->
+        <h2 style="font-size: 1.2rem; color: var(--light-gray); margin-top: 32px;">{% trans "Leave a review" %}</h2>
+
+        <div class="card p-3 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
+            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
+            <p style="color: white; font-style: italic; margin: 4px 0; font-size: 0.85rem;">"Really tasty, crispy, juicy, simply perfect."</p>
+            <small style="color: var(--light-gray); font-size: 0.75rem;">– Ae</small>
+        </div>
+        <div class="card p-3 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
+            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
+            <p style="color: white; font-style: italic; margin: 4px 0; font-size: 0.85rem;">"Nothing in the Balkans comes close to these burgers. Paradise for hamburger lovers! TOP CLASS"</p>
+            <small style="color: var(--light-gray); font-size: 0.75rem;">– Omar Rehman</small>
+        </div>
+        <div class="card p-3 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
+            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
+            <p style="color: white; font-style: italic; margin: 4px 0; font-size: 0.85rem;">"The hamburgers are absolutely fantastic."</p>
+            <small style="color: var(--light-gray); font-size: 0.75rem;">– Amir Mekic</small>
+        </div>
+        
+        <a href="{{ google_review_url }}" target="_blank" class="btn btn-primary btn-sm w-100 mt-3" style="border-radius: 10px;">{% trans "Write on Google" %}</a>
+
+         <!-- Feedback -->
+        <h2 style="font-size: 1.2rem; color: var(--light-gray); margin-top: 32px;">{% trans "Feedback? We want to hear from you!" %}</h2>
         <form method="post" action="https://formspree.io/f/maqkrroz">
             {% csrf_token %}
             <textarea name="suggestion" class="form-control mb-2" rows="2" placeholder="{% trans 'Your idea...' %}" style="background: var(--dark-gray); color: white; border: 1px solid #333; font-size: 0.85rem;"></textarea>
             <button type="submit" class="btn btn-primary btn-sm w-100" style="border-radius: 10px;">{% trans "Send" %}</button>
         </form>
     </div>
-
-    <!-- HÖGER: Recensioner -->
-    <div class="col-lg-6">
-        <h2 style="font-size: 1.2rem; margin-top: 6.4rem; margin-bottom: 1.5rem;">{% trans "Leave a review" %}</h2>
-
-        <div class="card p-2 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
-            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
-            <p style="color: white; font-style: italic; margin: 2px 0; font-size: 0.85rem;">"Really tasty, crispy, juicy, simply perfect."</p>
-            <small style="color: var(--light-gray); font-size: 0.75rem;">– Ae</small>
-        </div>
-        <div class="card p-2 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
-            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
-            <p style="color: white; font-style: italic; margin: 2px 0; font-size: 0.85rem;">"Nothing in the Balkans comes close to these burgers. Paradise for hamburger lovers! TOP CLASS"</p>
-            <small style="color: var(--light-gray); font-size: 0.75rem;">– Omar Rehman</small>
-        </div>
-        <div class="card p-2 mb-2" style="background: var(--dark-gray); border: 1px solid #222;">
-            <p style="color: var(--yellow); margin: 0; font-size: 0.85rem;">⭐⭐⭐⭐⭐</p>
-            <p style="color: white; font-style: italic; margin: 2px 0; font-size: 0.85rem;">"The hamburgers are absolutely fantastic."</p>
-            <small style="color: var(--light-gray); font-size: 0.75rem;">– Amir Mekic</small>
-        </div>
-        <a href="{{ google_review_url }}" target="_blank" class="btn btn-primary btn-sm w-100 mt-3">{% trans "Write on Google" %}</a>
-    </div>
-
 </div>
-
-<!-- Tack -->
-<p style="color: var(--yellow); font-size: 0.9rem;" class="text-center mt-4">{% trans "We read every single one. Promise." %} 🤞</p>
 
 {% endblock %}
