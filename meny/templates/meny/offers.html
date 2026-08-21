@@ -74,12 +74,12 @@
                                     <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,11,11,0.95) 0%, rgba(11,11,11,0.4) 100%);"></div>
                                 {% endif %}
                             </div>
-                            <div style="position: relative; z-index: 1; padding: 24px 20px; display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100%;">
-                                <div style="text-align: center;">
+                            <div style="position: relative; z-index: 1; padding: 24px 20px 28px; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; height: 100%;">
+                                <div>
                                     <h2 style="font-size: 2rem; font-weight: 800; color: var(--yellow); margin: 0 0 4px 0; line-height: 1;">{{ erbjudande.titel }}</h2>
                                     <p style="color: var(--white); font-size: 0.85rem; margin: 0;">{{ erbjudande.text }}</p>
                                 </div>
-                                <div style="margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                                <div style="margin-top: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                                     {% if erbjudande.kod %}
                                         <div style="background: rgba(245, 166, 35, 0.12); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(245, 166, 35, 0.25);">
                                             <span style="color: var(--yellow); font-size: 0.75rem; font-weight: 600;">{{ erbjudande.kod }}</span>
