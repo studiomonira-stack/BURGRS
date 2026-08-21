@@ -6,4 +6,5 @@ urlpatterns = [
     path('', include('meny.urls')),
     path('accounts/', include('accounts.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('rosetta/', include('rosetta.urls')),
 ]

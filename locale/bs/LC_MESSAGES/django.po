@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-07 12:17+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2026-08-21 13:04+0200\n"
+"PO-Revision-Date: 2026-08-21 13:12+0200\n"
+"Last-Translator:   <hello@novasilent.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Translated-Using: django-rosetta 0.10.3\n"
 
 #: .\accounts\templates\accounts\login.html:8
 msgid "Login – Burgrs"
@@ -97,6 +97,7 @@ msgid "Secure"
 msgstr "Sigurno"
 
 #: .\accounts\templates\accounts\register.html:123
+#: .\meny\templates\meny\offers.html:7
 msgid "Exclusive offers"
 msgstr "Ekskluzivne ponude"
 
@@ -104,15 +105,15 @@ msgstr "Ekskluzivne ponude"
 msgid "Members only"
 msgstr "Samo za članove"
 
-#: .\core\settings.py:132
+#: .\core\settings.py:153
 msgid "English"
 msgstr "Engleski"
 
-#: .\core\settings.py:133
+#: .\core\settings.py:154
 msgid "Bosnian"
 msgstr "Bosanski"
 
-#: .\core\settings.py:134
+#: .\core\settings.py:155
 msgid "Arabic"
 msgstr "Arapski"
 
@@ -128,7 +129,7 @@ msgstr "Odjavi se"
 msgid "Menu"
 msgstr "Meni"
 
-#: .\meny\templates\meny\base.html:218 .\meny\templates\meny\news.html:7
+#: .\meny\templates\meny\base.html:218
 msgid "News"
 msgstr "Novosti"
 
@@ -140,156 +141,165 @@ msgstr "Ponude"
 msgid "You Matter"
 msgstr "Ti si bitan"
 
-#: .\meny\templates\meny\dashboard.html:8 .\meny\templates\meny\hem.html:8
+#: .\meny\templates\meny\dashboard.html:10
 msgid "Like burgers. But better."
 msgstr "Kao burgeri. Samo bolji."
 
-#: .\meny\templates\meny\dashboard.html:21
-msgid "This Week's Pick"
-msgstr "Izbor ove sedmice"
+#: .\meny\templates\meny\dashboard.html:17
+msgid "Good food. Great rewards."
+msgstr "Dobra hrana. Velike nagrade."
 
-#: .\meny\templates\meny\dashboard.html:39
-msgid "Monthly Special"
-msgstr "Mjesečni specijal"
-
-#: .\meny\templates\meny\dashboard.html:40
-msgid "Coming Soon"
-msgstr "Dolazi uskoro" 
-
-#: .\meny\templates\meny\dashboard.html:41
-msgid "Something special is cooking. Stay tuned."
-msgstr "Nešto posebno se kuha. Pratite nas."
-
-#: .\meny\templates\meny\dashboard.html:47
-msgid "Got the app?"
-msgstr "Imaš aplikaciju?"
-
-#: .\meny\templates\meny\dashboard.html:48
-msgid "Exclusive offers are waiting inside. Show your account to redeem."
+#: .\meny\templates\meny\dashboard.html:18
+#| msgid ""
+#| "Exclusive offers are waiting inside. Show your account to redeem."
+msgid "Exclusive offers are waiting inside."
 msgstr "Ekskluzivne ponude čekaju unutra. Pokaži svoj račun da iskoristiš."
 
-#: .\meny\templates\meny\dashboard.html:49
+#: .\meny\templates\meny\dashboard.html:20
 msgid "View Offers"
 msgstr "Pogledaj ponude"
 
-#: .\meny\templates\meny\dashboard.html:63
+#: .\meny\templates\meny\dashboard.html:37
+msgid "This Week's Pick"
+msgstr "Izbor ove sedmice"
+
+#: .\meny\templates\meny\dashboard.html:53
+msgid "Monthly Special"
+msgstr "Mjesečni specijal"
+
+#: .\meny\templates\meny\dashboard.html:54
+msgid "Coming Soon"
+msgstr "Dolazi uskoro"
+
+#: .\meny\templates\meny\dashboard.html:55
+msgid "Something special is cooking. Stay tuned."
+msgstr "Nešto posebno se kuha. Pratite nas."
+
+#: .\meny\templates\meny\dashboard.html:67
 msgid "Latest News"
 msgstr "Najnovije vijesti"
 
-#: .\meny\templates\meny\dashboard.html:67
+#: .\meny\templates\meny\dashboard.html:71
 msgid "Read"
 msgstr "Pročitaj"
 
-#: .\meny\templates\meny\hem.html:12
+#: .\meny\templates\meny\hem.html:9
+msgid "Our menu"
+msgstr "Naš meni"
+
+#: .\meny\templates\meny\hem.html:10
+msgid ""
+"Our smash burgers are created with love and care to<br>exceed all your "
+"expectations. Find your favourite below."
+msgstr ""
+"Naši smash burgeri su napravljeni s ljubavlju i pažnjom kako bi premašili "
+"sva vaša očekivanja. Pronađite svog favorita ispod."
+
+#: .\meny\templates\meny\hem.html:14
 msgid "All"
 msgstr "Sve"
 
-#: .\meny\templates\meny\hem.html:13
+#: .\meny\templates\meny\hem.html:15
 msgid "Burgers"
 msgstr "Burgeri"
 
-#: .\meny\templates\meny\hem.html:14
+#: .\meny\templates\meny\hem.html:16
 msgid "Sides"
 msgstr "Prilozi"
 
-#: .\meny\templates\meny\hem.html:15
+#: .\meny\templates\meny\hem.html:17
 msgid "Dips"
 msgstr "Umaci"
 
-#: .\meny\templates\meny\hem.html:28
+#: .\meny\templates\meny\hem.html:30
 msgid "Popular"
 msgstr "Popularno"
 
-#: .\meny\templates\meny\hem.html:34
+#: .\meny\templates\meny\hem.html:36
 msgid "No items added yet."
 msgstr "Još nema dodanih stavki."
+
+#: .\meny\templates\meny\news.html:7
+#| msgid "Latest News"
+msgid "Latest news"
+msgstr "Najnovije vijesti"
 
 #: .\meny\templates\meny\news.html:8
 msgid "What's cooking at Burgrs."
 msgstr "Šta se kuha u Burgrs-u."
 
-#: .\meny\templates\meny\news.html:26
+#: .\meny\templates\meny\news.html:22
 msgid "No news yet. Something exciting is coming."
 msgstr "Još nema vijesti. Nešto uzbudljivo dolazi."
-
-#: .\meny\templates\meny\offers.html:7
-msgid "Exclusive Offers"
-msgstr "Ekskluzivne ponude"
 
 #: .\meny\templates\meny\offers.html:8
 msgid "For app members only. Show your account to redeem."
 msgstr "Samo za članove aplikacije. Pokaži svoj račun da iskoristiš."
 
-#: .\meny\templates\meny\offers.html:24
+#: .\meny\templates\meny\offers.html:32 .\meny\templates\meny\offers.html:55
+#: .\meny\templates\meny\offers.html:81
 msgid "Already used"
 msgstr "Već iskorišteno"
 
-#: .\meny\templates\meny\offers.html:27
-msgid "Code:"
-msgstr "Kod:"
-
-#: .\meny\templates\meny\offers.html:31
-msgid "Redeem Offer"
+#: .\meny\templates\meny\offers.html:36 .\meny\templates\meny\offers.html:59
+#: .\meny\templates\meny\offers.html:85
+#| msgid "Redeem Offer"
+msgid "Redeem"
 msgstr "Iskoristi ponudu"
 
-#: .\meny\templates\meny\offers.html:37
+#: .\meny\templates\meny\offers.html:105
 msgid "No offers right now. Check back soon!"
 msgstr "Trenutno nema ponuda. Provjeri uskoro!"
 
-#: .\meny\templates\meny\youmatter.html:9
-msgid "YOU MATTER."
-msgstr "TI SI BITAN."
+#: .\meny\templates\meny\youmatter.html:7
+#| msgid "You Matter"
+msgid "You matter."
+msgstr "Tvoj glas je važan"
 
-#: .\meny\templates\meny\youmatter.html:10
+#: .\meny\templates\meny\youmatter.html:8
 msgid "Your voice shapes Burgrs. Every visit. Every bite. Every thought."
 msgstr "Tvoj glas oblikuje Burgrs. Svaka posjeta. Svaki zalogaj. Svaka misao."
 
-#: .\meny\templates\meny\youmatter.html:13
-msgid "Bring it back?"
-msgstr "Vrati ga?"
+#: .\meny\templates\meny\youmatter.html:11
+#| msgid "Monthly Special"
+msgid "Next Special"
+msgstr "Sljedeći specijal"
 
-#: .\meny\templates\meny\youmatter.html:15
+#: .\meny\templates\meny\youmatter.html:16
 msgid "to vote!"
 msgstr "da glasaš!"
 
-#: .\meny\templates\meny\youmatter.html:17
+#: .\meny\templates\meny\youmatter.html:20
 msgid "Thanks for voting!"
 msgstr "Hvala što si glasao!"
 
-#: .\meny\templates\meny\youmatter.html:19
-#: .\meny\templates\meny\youmatter.html:20
-#: .\meny\templates\meny\youmatter.html:21
-#: .\meny\templates\meny\youmatter.html:22
-msgid "votes"
-msgstr "glasova"
-
-#: .\meny\templates\meny\youmatter.html:22
+#: .\meny\templates\meny\youmatter.html:29
 msgid "Total:"
 msgstr "Ukupno"
 
-#: .\meny\templates\meny\youmatter.html:34
-msgid "Feedback? We want to hear from you!"
-msgstr "Povratne informacije? Želimo čuti tvoje mišljenje!"
+#: .\meny\templates\meny\youmatter.html:46
+msgid "Vote"
+msgstr "Glasaj"
 
-#: .\meny\templates\meny\youmatter.html:37
-msgid "Your idea..."
-msgstr "Tvoja ideja..."
-
-#: .\meny\templates\meny\youmatter.html:38
-msgid "Send"
-msgstr "Pošalji"
-
-#: .\meny\templates\meny\youmatter.html:44
+#: .\meny\templates\meny\youmatter.html:52
 msgid "Leave a review"
 msgstr "Ostavi recenziju"
 
-#: .\meny\templates\meny\youmatter.html:45
+#: .\meny\templates\meny\youmatter.html:70
 msgid "Write on Google"
 msgstr "Piši na Google-u"
 
-#: .\meny\templates\meny\youmatter.html:67
-msgid "We read every single one. Promise."
-msgstr "Čitamo svaku. Obećavamo."
+#: .\meny\templates\meny\youmatter.html:73
+msgid "Feedback? We want to hear from you!"
+msgstr "Povratne informacije? Želimo čuti tvoje mišljenje!"
+
+#: .\meny\templates\meny\youmatter.html:76
+msgid "Your idea..."
+msgstr "Tvoja ideja..."
+
+#: .\meny\templates\meny\youmatter.html:77
+msgid "Send"
+msgstr "Pošalji"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
@@ -354,8 +364,8 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:297
 msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:309
@@ -574,8 +584,8 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1569
 #, python-format
 msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
+"“%(value)s” value has the correct format (YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1574
@@ -805,7 +815,8 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:642
 #, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid ""
+"Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -912,7 +923,8 @@ msgid "The inline value did not match the parent instance."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1474
-msgid "Select a valid choice. That choice is not one of the available choices."
+msgid ""
+"Select a valid choice. That choice is not one of the available choices."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1623
@@ -1392,10 +1404,10 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:45
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a "
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
+" including the “Referrer-Policy: no-referrer” header, please remove them. "
+"The CSRF protection requires the “Referer” header to do strict referer "
+"checking. If you’re concerned about privacy, use alternatives like <a "
 "rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
 
@@ -1506,10 +1518,10 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
 #, python-format
 msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" "
-"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
-"configured any URLs."
+"You are seeing this page because <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+"and you have not configured any URLs."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
@@ -1535,3 +1547,24 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Got the app?"
+#~ msgstr "Imaš aplikaciju?"
+
+#~ msgid "Exclusive Offers"
+#~ msgstr "Ekskluzivne ponude"
+
+#~ msgid "Code:"
+#~ msgstr "Kod:"
+
+#~ msgid "YOU MATTER."
+#~ msgstr "TI SI BITAN."
+
+#~ msgid "Bring it back?"
+#~ msgstr "Vrati ga?"
+
+#~ msgid "votes"
+#~ msgstr "glasova"
+
+#~ msgid "We read every single one. Promise."
+#~ msgstr "Čitamo svaku. Obećavamo."

@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-07 12:18+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2026-08-21 13:05+0200\n"
+"PO-Revision-Date: 2026-08-21 13:10+0200\n"
+"Last-Translator:   <hello@novasilent.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Translated-Using: django-rosetta 0.10.3\n"
 
 #: .\accounts\templates\accounts\login.html:8
 msgid "Login – Burgrs"
@@ -97,6 +97,7 @@ msgid "Secure"
 msgstr "آمن"
 
 #: .\accounts\templates\accounts\register.html:123
+#: .\meny\templates\meny\offers.html:7
 msgid "Exclusive offers"
 msgstr "عروض حصرية"
 
@@ -104,15 +105,15 @@ msgstr "عروض حصرية"
 msgid "Members only"
 msgstr "للأعضاء فقط"
 
-#: .\core\settings.py:132
+#: .\core\settings.py:153
 msgid "English"
 msgstr "English"
 
-#: .\core\settings.py:133
+#: .\core\settings.py:154
 msgid "Bosnian"
 msgstr "Bosanski"
 
-#: .\core\settings.py:134
+#: .\core\settings.py:155
 msgid "Arabic"
 msgstr "العربية"
 
@@ -128,7 +129,7 @@ msgstr "تسجيل الخروج"
 msgid "Menu"
 msgstr "القائمة"
 
-#: .\meny\templates\meny\base.html:218 .\meny\templates\meny\news.html:7
+#: .\meny\templates\meny\base.html:218
 msgid "News"
 msgstr "الأخبار"
 
@@ -140,156 +141,165 @@ msgstr "العروض"
 msgid "You Matter"
 msgstr "أنت مهم"
 
-#: .\meny\templates\meny\dashboard.html:8 .\meny\templates\meny\hem.html:8
+#: .\meny\templates\meny\dashboard.html:10
 msgid "Like burgers. But better."
 msgstr "مثل البرغر. لكن أفضل."
 
-#: .\meny\templates\meny\dashboard.html:21
-msgid "This Week's Pick"
-msgstr "اختيار هذا الأسبوع"
+#: .\meny\templates\meny\dashboard.html:17
+msgid "Good food. Great rewards."
+msgstr ".طعام لذيذ. مكافآت رائعة"
 
-#: .\meny\templates\meny\dashboard.html:39
-msgid "Monthly Special"
-msgstr "العرض الشهري"
+#: .\meny\templates\meny\dashboard.html:18
+#| msgid ""
+#| "Exclusive offers are waiting inside. Show your account to redeem."
+msgid "Exclusive offers are waiting inside."
+msgstr "العروض الحصرية بانتظارك في الداخل"
 
-#: .\meny\templates\meny\dashboard.html:40
-msgid "Coming Soon"
-msgstr "قريباً"
-
-#: .\meny\templates\meny\dashboard.html:41
-msgid "Something special is cooking. Stay tuned."
-msgstr "شيء مميز قيد التحضير. تابعونا"
-
-#: .\meny\templates\meny\dashboard.html:47
-msgid "Got the app?"
-msgstr "هل لديك التطبيق؟"
-
-#: .\meny\templates\meny\dashboard.html:48
-msgid "Exclusive offers are waiting inside. Show your account to redeem."
-msgstr "العروض الحصرية في انتظارك. أظهر حسابك للاستفادة."
-
-#: .\meny\templates\meny\dashboard.html:49
+#: .\meny\templates\meny\dashboard.html:20
 msgid "View Offers"
 msgstr "عرض العروض"
 
-#: .\meny\templates\meny\dashboard.html:63
+#: .\meny\templates\meny\dashboard.html:37
+msgid "This Week's Pick"
+msgstr "اختيار هذا الأسبوع"
+
+#: .\meny\templates\meny\dashboard.html:53
+msgid "Monthly Special"
+msgstr "العرض الشهري"
+
+#: .\meny\templates\meny\dashboard.html:54
+msgid "Coming Soon"
+msgstr "قريباً"
+
+#: .\meny\templates\meny\dashboard.html:55
+msgid "Something special is cooking. Stay tuned."
+msgstr "شيء مميز قيد التحضير. تابعونا"
+
+#: .\meny\templates\meny\dashboard.html:67
 msgid "Latest News"
 msgstr "آخر الأخبار"
 
-#: .\meny\templates\meny\dashboard.html:67
+#: .\meny\templates\meny\dashboard.html:71
 msgid "Read"
 msgstr "اقرأ"
 
-#: .\meny\templates\meny\hem.html:12
+#: .\meny\templates\meny\hem.html:9
+msgid "Our menu"
+msgstr "قائمتنا"
+
+#: .\meny\templates\meny\hem.html:10
+msgid ""
+"Our smash burgers are created with love and care to<br>exceed all your "
+"expectations. Find your favourite below."
+msgstr ""
+"برجرنا المهروس مصنوع بحب وعناية ليتجاوز كل توقعاتك. اعثر على المفضل لديك "
+"بالأسفل"
+
+#: .\meny\templates\meny\hem.html:14
 msgid "All"
 msgstr "الكل"
 
-#: .\meny\templates\meny\hem.html:13
+#: .\meny\templates\meny\hem.html:15
 msgid "Burgers"
 msgstr "برغر"
 
-#: .\meny\templates\meny\hem.html:14
+#: .\meny\templates\meny\hem.html:16
 msgid "Sides"
 msgstr "أطباق جانبية"
 
-#: .\meny\templates\meny\hem.html:15
+#: .\meny\templates\meny\hem.html:17
 msgid "Dips"
 msgstr "صلصات"
 
-#: .\meny\templates\meny\hem.html:28
+#: .\meny\templates\meny\hem.html:30
 msgid "Popular"
 msgstr "رائج"
 
-#: .\meny\templates\meny\hem.html:34
+#: .\meny\templates\meny\hem.html:36
 msgid "No items added yet."
 msgstr "لا توجد عناصر مضافة بعد."
+
+#: .\meny\templates\meny\news.html:7
+#| msgid "Latest News"
+msgid "Latest news"
+msgstr "آخر الأخبار "
 
 #: .\meny\templates\meny\news.html:8
 msgid "What's cooking at Burgrs."
 msgstr "ماذا يطبخ في Burgrs."
 
-#: .\meny\templates\meny\news.html:26
+#: .\meny\templates\meny\news.html:22
 msgid "No news yet. Something exciting is coming."
 msgstr "لا أخبار بعد. شيء مثير قادم."
-
-#: .\meny\templates\meny\offers.html:7
-msgid "Exclusive Offers"
-msgstr "عروض حصرية"
 
 #: .\meny\templates\meny\offers.html:8
 msgid "For app members only. Show your account to redeem."
 msgstr "لأعضاء التطبيق فقط. أظهر حسابك للاستفادة."
 
-#: .\meny\templates\meny\offers.html:24
+#: .\meny\templates\meny\offers.html:32 .\meny\templates\meny\offers.html:55
+#: .\meny\templates\meny\offers.html:81
 msgid "Already used"
 msgstr "مستخدم بالفعل"
 
-#: .\meny\templates\meny\offers.html:27
-msgid "Code:"
-msgstr "الكود:"
+#: .\meny\templates\meny\offers.html:36 .\meny\templates\meny\offers.html:59
+#: .\meny\templates\meny\offers.html:85
+#| msgid "Redeem Offer"
+msgid "Redeem"
+msgstr "استبدل العرض"
 
-#: .\meny\templates\meny\offers.html:31
-msgid "Redeem Offer"
-msgstr "استفد من العرض"
-
-#: .\meny\templates\meny\offers.html:37
+#: .\meny\templates\meny\offers.html:105
 msgid "No offers right now. Check back soon!"
 msgstr "لا عروض حالياً. تحقق لاحقاً!"
 
-#: .\meny\templates\meny\youmatter.html:9
-msgid "YOU MATTER."
-msgstr "أنت مهم."
+#: .\meny\templates\meny\youmatter.html:7
+#| msgid "You Matter"
+msgid "You matter."
+msgstr "رأيك يهمنا"
 
-#: .\meny\templates\meny\youmatter.html:10
+#: .\meny\templates\meny\youmatter.html:8
 msgid "Your voice shapes Burgrs. Every visit. Every bite. Every thought."
 msgstr "صوتك يشكل Burgrs. كل زيارة. كل لقمة. كل فكرة."
 
-#: .\meny\templates\meny\youmatter.html:13
-msgid "Bring it back?"
-msgstr "أعده؟"
+#: .\meny\templates\meny\youmatter.html:11
+#| msgid "Monthly Special"
+msgid "Next Special"
+msgstr "البرجر التالي المميز"
 
-#: .\meny\templates\meny\youmatter.html:15
+#: .\meny\templates\meny\youmatter.html:16
 msgid "to vote!"
 msgstr "للتصويت!"
 
-#: .\meny\templates\meny\youmatter.html:17
+#: .\meny\templates\meny\youmatter.html:20
 msgid "Thanks for voting!"
 msgstr "شكراً لتصويتك!"
 
-#: .\meny\templates\meny\youmatter.html:19
-#: .\meny\templates\meny\youmatter.html:20
-#: .\meny\templates\meny\youmatter.html:21
-#: .\meny\templates\meny\youmatter.html:22
-msgid "votes"
-msgstr "أصوات"
-
-#: .\meny\templates\meny\youmatter.html:22
+#: .\meny\templates\meny\youmatter.html:29
 msgid "Total:"
 msgstr "المجموع:"
 
-#: .\meny\templates\meny\youmatter.html:34
-msgid "Feedback? We want to hear from you!"
-msgstr "اقتراحات؟ نريد أن نسمع منك!"
+#: .\meny\templates\meny\youmatter.html:46
+msgid "Vote"
+msgstr "صوّت"
 
-#: .\meny\templates\meny\youmatter.html:37
-msgid "Your idea..."
-msgstr "فكرتك..."
-
-#: .\meny\templates\meny\youmatter.html:38
-msgid "Send"
-msgstr "إرسال"
-
-#: .\meny\templates\meny\youmatter.html:44
+#: .\meny\templates\meny\youmatter.html:52
 msgid "Leave a review"
 msgstr "اترك تقييماً"
 
-#: .\meny\templates\meny\youmatter.html:45
+#: .\meny\templates\meny\youmatter.html:70
 msgid "Write on Google"
 msgstr "اكتب على Google"
 
-#: .\meny\templates\meny\youmatter.html:67
-msgid "We read every single one. Promise."
-msgstr "نقرأ كل واحد منها. نعدك."
+#: .\meny\templates\meny\youmatter.html:73
+msgid "Feedback? We want to hear from you!"
+msgstr "اقتراحات؟ نريد أن نسمع منك!"
+
+#: .\meny\templates\meny\youmatter.html:76
+msgid "Your idea..."
+msgstr "فكرتك..."
+
+#: .\meny\templates\meny\youmatter.html:77
+msgid "Send"
+msgstr "إرسال"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
@@ -354,8 +364,8 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:297
 msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:309
@@ -574,8 +584,8 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1569
 #, python-format
 msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
+"“%(value)s” value has the correct format (YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1574
@@ -805,7 +815,8 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:642
 #, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid ""
+"Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -912,7 +923,8 @@ msgid "The inline value did not match the parent instance."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1474
-msgid "Select a valid choice. That choice is not one of the available choices."
+msgid ""
+"Select a valid choice. That choice is not one of the available choices."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1623
@@ -1392,10 +1404,10 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:45
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a "
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
+" including the “Referrer-Policy: no-referrer” header, please remove them. "
+"The CSRF protection requires the “Referer” header to do strict referer "
+"checking. If you’re concerned about privacy, use alternatives like <a "
 "rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
 
@@ -1506,10 +1518,10 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
 #, python-format
 msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" "
-"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
-"configured any URLs."
+"You are seeing this page because <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+"and you have not configured any URLs."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
@@ -1535,3 +1547,24 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Got the app?"
+#~ msgstr "هل لديك التطبيق؟"
+
+#~ msgid "Exclusive Offers"
+#~ msgstr "عروض حصرية"
+
+#~ msgid "Code:"
+#~ msgstr "الكود:"
+
+#~ msgid "YOU MATTER."
+#~ msgstr "أنت مهم."
+
+#~ msgid "Bring it back?"
+#~ msgstr "أعده؟"
+
+#~ msgid "votes"
+#~ msgstr "أصوات"
+
+#~ msgid "We read every single one. Promise."
+#~ msgstr "نقرأ كل واحد منها. نعدك."
