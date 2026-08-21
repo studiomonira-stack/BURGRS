@@ -18,20 +18,20 @@
                         
                         {% if erbjudande.card_style == 'dark' %}
                         <!-- DARK CARD -->
-                        <div style="background: var(--black); border: 1px solid #333; border-radius: 16px; padding: 24px 20px; position: relative; overflow: hidden; width: 100%; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="background: var(--black); border: 1px solid #333; border-radius: 16px; padding: 50px 20px 32px; position: relative; overflow: hidden; width: 100%; aspect-ratio: 1.8 / 1; display: flex; flex-direction: column; justify-content: space-between;">
                             <div style="position: absolute; right: -20px; bottom: -20px; opacity: 0.05; font-size: 6rem; font-weight: 700; color: var(--yellow);">B</div>
                             <div>
                                 <h2 style="font-size: 2rem; font-weight: 800; color: var(--yellow); margin: 0 0 4px 0; line-height: 1;">{{ erbjudande.titel }}</h2>
-                                <p style="color: var(--white); font-size: 0.85rem; margin: 0;">{{ erbjudande.text }}</p>
+                                <p style="color: var(--white); font-size: 0.85rem; margin: 0 0 12px;">{{ erbjudande.text }}</p>
                             </div>
-                            <div style="margin-top: 12px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <div style="margin-top: 16px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap;">
                                 {% if erbjudande.kod %}
                                     <div style="background: rgba(245, 166, 35, 0.12); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(245, 166, 35, 0.25);">
                                         <span style="color: var(--yellow); font-size: 0.75rem; font-weight: 600;">{{ erbjudande.kod }}</span>
                                     </div>
                                 {% endif %}
                                 {% if erbjudande.id in anvanda %}
-                                    <p style="color: #e74c3c; font-size: 0.85rem; margin: 0;">❌ {% trans "Already used" %}</p>
+                                    <p style="color: #e74c3c; font-size: 0.85rem; margin:  0 0 12px;">❌ {% trans "Already used" %}</p>
                                 {% else %}
                                     <form method="post" action="{% url 'anvand_erbjudande' erbjudande.id %}" style="margin: 0;">
                                         {% csrf_token %}
@@ -43,19 +43,19 @@
                         
                         {% elif erbjudande.card_style == 'light' %}
                         <!-- LIGHT CARD -->
-                        <div style="background: var(--white); border: 1px solid #ddd; border-radius: 16px; padding: 24px 20px; width: 100%; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="background: var(--white); border: 1px solid #ddd; border-radius: 16px; padding: 50px 20px 32px; width: 100%; aspect-ratio: 1.8 / 1; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
                                 <h2 style="font-size: 2rem; font-weight: 800; color: var(--black); margin: 0 0 4px 0; line-height: 1;">{{ erbjudande.titel }}</h2>
-                                <p style="color: #555; font-size: 0.85rem; margin: 0;">{{ erbjudande.text }}</p>
+                                <p style="color: #555; font-size: 0.85rem; margin: 0 0 12px;">{{ erbjudande.text }}</p>
                             </div>
-                            <div style="margin-top: 12px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <div style="margin-top: 28px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                                 {% if erbjudande.kod %}
                                     <div style="background: rgba(245, 166, 35, 0.2); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(245, 166, 35, 0.4);">
                                         <span style="color: var(--black); font-size: 0.75rem; font-weight: 600;">{{ erbjudande.kod }}</span>
                                     </div>
                                 {% endif %}
                                 {% if erbjudande.id in anvanda %}
-                                    <p style="color: #e74c3c; font-size: 0.85rem; margin: 0;">❌ {% trans "Already used" %}</p>
+                                    <p style="color: #e74c3c; font-size: 0.85rem; margin: 0 0 12px;">❌ {% trans "Already used" %}</p>
                                 {% else %}
                                     <form method="post" action="{% url 'anvand_erbjudande' erbjudande.id %}" style="margin: 0;">
                                         {% csrf_token %}
@@ -67,26 +67,26 @@
                         
                         {% else %}
                         <!-- IMAGE CARD - kreditkortsformat -->
-                        <div style="background: var(--black); border: 1px solid #333; border-radius: 16px; overflow: hidden; width: 100%; position: relative; aspect-ratio: 1.58 / 1;">
+                        <div style="background: var(--black); border: 1px solid #333; border-radius: 16px; overflow: hidden; width: 100%; position: relative; aspect-ratio: 1.8 / 1;">
                             <div style="position: absolute; inset: 0; z-index: 0;">
                                 {% if erbjudande.bild_url %}
                                     <img src="{{ erbjudande.bild_url }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
                                     <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,11,11,0.95) 0%, rgba(11,11,11,0.4) 100%);"></div>
                                 {% endif %}
                             </div>
-                            <div style="position: relative; z-index: 1; padding: 24px 20px 28px; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; height: 100%;">
+                            <div style="position: relative; z-index: 1; padding: 50px 20px 32px; display: flex; flex-direction: column; justify-content: space-between; width: 100%; height: 100%;">
                                 <div>
                                     <h2 style="font-size: 2rem; font-weight: 800; color: var(--yellow); margin: 0 0 4px 0; line-height: 1;">{{ erbjudande.titel }}</h2>
-                                    <p style="color: var(--white); font-size: 0.85rem; margin: 0;">{{ erbjudande.text }}</p>
+                                    <p style="color: var(--white); font-size: 0.85rem; margin: 0 0 12px;">{{ erbjudande.text }}</p>
                                 </div>
-                                <div style="margin-top: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <div style="margin-top: 28px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                                     {% if erbjudande.kod %}
                                         <div style="background: rgba(245, 166, 35, 0.12); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(245, 166, 35, 0.25);">
                                             <span style="color: var(--yellow); font-size: 0.75rem; font-weight: 600;">{{ erbjudande.kod }}</span>
                                         </div>
                                     {% endif %}
                                     {% if erbjudande.id in anvanda %}
-                                        <p style="color: #e74c3c; font-size: 0.85rem; margin: 0;">❌ {% trans "Already used" %}</p>
+                                        <p style="color: #e74c3c; font-size: 0.85rem; margin: 0 0 12px;">❌ {% trans "Already used" %}</p>
                                     {% else %}
                                         <form method="post" action="{% url 'anvand_erbjudande' erbjudande.id %}" style="margin: 0;">
                                             {% csrf_token %}
